@@ -1,4 +1,5 @@
-export interface DtoCreateUser {
+export interface DtoCreateUser
+{
   email:string;
   pseudo:string;
   localite:string;
