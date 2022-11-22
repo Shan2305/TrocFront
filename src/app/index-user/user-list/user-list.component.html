@@ -1,0 +1,9 @@
+LISTE
+
+<div *ngIf="users.length">
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.email}} {{user.pseudo}}
+    </li>
+  </ul>
+</div>
