@@ -1,0 +1,8 @@
+LISTE ARTICLES
+<div *ngIf="articles.length">
+  <ul>
+    <li *ngFor="let article of articles">
+      {{article.name}} {{article.urlImage}}<img src={{article.urlImage}}/>
+    </li>
+  </ul>
+</div>
