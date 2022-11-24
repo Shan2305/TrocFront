@@ -7,13 +7,17 @@ import { UserCreateComponent } from './index-user/user-create/user-create.compon
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { IndexUserComponent } from './index-user/index-user.component';
+import { IndexArticlesComponent } from './index-articles/index-articles.component';
+import { ArticleListComponent } from './index-articles/article-list/article-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     UserCreateComponent,
-    IndexUserComponent
+    IndexUserComponent,
+    IndexArticlesComponent,
+    ArticleListComponent
   ],
   imports: [
     BrowserModule,
