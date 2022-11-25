@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { IndexUserComponent } from './index-user/index-user.component';
 import { IndexArticlesComponent } from './index-articles/index-articles.component';
 import { ArticleListComponent } from './index-articles/article-list/article-list.component';
+import { ArticleCreateComponent } from './index-articles/article-create/article-create.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ArticleListComponent } from './index-articles/article-list/article-list
     UserCreateComponent,
     IndexUserComponent,
     IndexArticlesComponent,
-    ArticleListComponent
+    ArticleListComponent,
+    ArticleCreateComponent
   ],
   imports: [
     BrowserModule,

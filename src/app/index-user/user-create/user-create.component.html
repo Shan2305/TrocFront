@@ -1,5 +1,9 @@
+<body>
+<div class="container">
+  <div class="brand-logo"></div>
 <form [formGroup]="form" (ngSubmit)="sendUser()">
-  <div>
+  <div class="inputs">
+    <div class="brand-title">WeLoveTroc</div>
     <label>
       Email :
       <input type="text" formControlName="email">
@@ -17,5 +21,16 @@
       <input type="text" formControlName="mdp">
     </label>
   </div>
-  <input type="submit" [disabled]="form.invalid">
+  <button type="submit" value="S'enregistrer" [disabled]="form.invalid">
+  </button>
 </form>
+</div>
+
+</body>
+
+
+
+
+
+
+
