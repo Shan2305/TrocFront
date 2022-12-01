@@ -10,6 +10,9 @@ import { IndexUserComponent } from './index-user/index-user.component';
 import { IndexArticlesComponent } from './index-articles/index-articles.component';
 import { ArticleListComponent } from './index-articles/article-list/article-list.component';
 import { ArticleCreateComponent } from './index-articles/article-create/article-create.component';
+import { AngularFireModule } from '@angular/fire/compat'
+import {environment} from "../environments/environment.prod";
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { ArticleCreateComponent } from './index-articles/article-create/article-
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
