@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="sendArticle()">
+  <div>
+    <label>
+      Nom
+      <input type="text" formControlName="name">
+    </label>
+    <label>
+      urlImage
+      <input type="file" formControlName="urlImage">
+    </label>
+    <label>
+      publicationDate :
+      <input type="text" formControlName="publicationDate">
+    </label>
+    <label>
+      nomCat :
+      <input type="text" formControlName="nomCat">
+    </label>
+  </div>
+  <input type="submit" [disabled]="form.invalid">
+</form>
