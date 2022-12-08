@@ -4,5 +4,6 @@ export interface DtoInputArticle {
   urlImage:string;
   publicationDate:string;
   nomCat:string;
+  idUser:number;
 
 }

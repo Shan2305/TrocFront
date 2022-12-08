@@ -1,8 +1,21 @@
+<body>
 LISTE ARTICLES
-<div *ngIf="articles.length">
+<div class="container" *ngIf="articles.length">
   <ul>
     <li *ngFor="let article of articles">
-      {{article.name}} {{article.urlImage}}<img src={{article.urlImage}}/>
+      <a routerLink="../detail/{{article.id}}">
+      <div class="casArticle">
+      <span class="articleName">{{article.name}}</span>
+      <div class="caseImage">
+        <img src={{article.urlImage}}/>
+      </div>
+        </div>
+      </a>
     </li>
   </ul>
 </div>
+</body>
+<router-outlet></router-outlet>
+
+
+

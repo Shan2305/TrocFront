@@ -22,4 +22,9 @@ export class ArticlesService {
   create(dto:DtoCreateArticle):Observable<DtoInputArticle>{
     return this._httpClient.post<DtoInputArticle>( ArticlesService.ENTRY_POINT+"?name="+dto.name+"&urlImage="+dto.urlImage+"&publicationDate="+dto.publicationDate+"&nomCat="+dto.nomCat, dto);
   }
+
+  //https://localhost:7018/api/v1/Article/Id/33
+  fetchById(id: number): Observable<DtoInputArticle> {
+    return this._httpClient.get<DtoInputArticle>(ArticlesService.ENTRY_POINT+'/Id/'+id);
+  }
 }

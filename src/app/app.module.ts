@@ -12,6 +12,8 @@ import { ArticleListComponent } from './index-articles/article-list/article-list
 import { ArticleCreateComponent } from './index-articles/article-create/article-create.component';
 import { AngularFireModule } from '@angular/fire/compat'
 import {environment} from "../environments/environment.prod";
+import {AppRoutingModule} from "./app-routing.module";
+import { ArticleDetailComponent } from './index-articles/article-detail/article-detail.component';
 
 
 @NgModule({
@@ -22,12 +24,14 @@ import {environment} from "../environments/environment.prod";
     IndexUserComponent,
     IndexArticlesComponent,
     ArticleListComponent,
-    ArticleCreateComponent
+    ArticleCreateComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
