@@ -1,0 +1,58 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin-left: 9%;
+  margin-right: 9%;
+
+  position: absolute;
+  border: 1px solid;
+  height: 80%;
+  width: 80%;
+}
+.container
+{
+  display: flex;
+  flex-direction: row;
+  float: left;
+  background-color: #1DA1F2;
+  border: 1px solid;
+  width: 100%;
+  height: 100%;
+}
+.containerImg
+{
+  background-color: blue;
+  align-content: center;
+  text-align: center;
+  border: 1px solid;
+  width: 50%;
+  height: 100%;
+}
+.profil
+{
+  background-color: yellow;
+  align-content: center;
+  text-align: center;
+  border: 1px solid;
+  width: 50%;
+  height: 100%;
+}
+.name
+{
+  background-color: green;
+  width: 100%;
+  text-align: center;
+  border: 1px solid;
+}
+
+img
+{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+
