@@ -16,13 +16,14 @@ LISTE ARTICLES
     <br>
    Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
     <br>
-    <a href="#">
+    <a routerLink="../../detailUser/{{user.id}}">
     Accéder au profil ?
     </a>
 
   </div>
 </div>
 </body>
+<router-outlet></router-outlet>
 
 
 

@@ -1,0 +1,40 @@
+<body>
+
+<div class="container" *ngIf="user">
+  <span class="name">Profil de l'utilisateur {{user.pseudo}}</span>
+  <div class="profil">
+    <ul>
+      <li>
+        PSEUDO : {{user.pseudo}}
+      </li>
+      <li>
+        EMAIL : {{user.email}}
+      </li>
+      <li>
+        LOCALITE : {{user.localite}}
+      </li>
+    </ul>
+  </div>
+  <div class="otherArticle" *ngIf="articles">
+    <ul>
+      <li *ngFor="let article of articles">
+        <a routerLink="../../detail/{{article.id}}">
+          <div class="casArticle">
+            <span class="articleName">{{article.name}}</span>
+            <div class="caseImage">
+              <img src={{article.urlImage}}/>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
+<router-outlet></router-outlet>
+
+
+
+
+
+
