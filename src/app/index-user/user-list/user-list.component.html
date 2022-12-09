@@ -1,9 +1,15 @@
-LISTE
-
-<div *ngIf="users.length">
-  <ul>
-    <li *ngFor="let user of users">
-      {{user.email}} {{user.pseudo}}
-    </li>
-  </ul>
+<body>
+<h1>LISTE DES USERS</h1>
+<div class="container" *ngIf="users.length">
+  <table>
+    <tr *ngFor="let user of users">
+      <td>Pseudo :</td>
+      <td>
+        <a routerLink="../detailUser/{{user.id}}">
+          {{user.pseudo}}
+        </a>
+      </td>
+    </tr>
+  </table>
 </div>
+</body>
