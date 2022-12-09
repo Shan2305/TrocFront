@@ -23,6 +23,8 @@ body {
 }
 .containerImg
 {
+  display: flex;
+  flex-direction: column;
   background-color: blue;
   align-content: center;
   text-align: center;

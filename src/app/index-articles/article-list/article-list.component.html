@@ -4,11 +4,11 @@ LISTE ARTICLES
   <ul>
     <li *ngFor="let article of articles">
       <a routerLink="../detail/{{article.id}}">
-      <div class="casArticle">
-      <span class="articleName">{{article.name}}</span>
-      <div class="caseImage">
-        <img src={{article.urlImage}}/>
-      </div>
+        <div class="casArticle">
+          <span class="articleName">{{article.name}}</span>
+          <div class="caseImage">
+            <img src={{article.urlImage}}/>
+          </div>
         </div>
       </a>
     </li>
