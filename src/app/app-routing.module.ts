@@ -5,6 +5,7 @@ import {ArticleDetailComponent} from "./index-articles/article-detail/article-de
 import {ArticleListComponent} from "./index-articles/article-list/article-list.component";
 import {IndexArticlesComponent} from "./index-articles/index-articles.component";
 import * as path from "path";
+import {DetailUserComponent} from "./index-user/detail-user/detail-user.component";
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
 
   {
     path: 'detail/:id', component: ArticleDetailComponent
+  },
+
+  {
+    path: 'detailUser/:id', component: DetailUserComponent
   }
 ]
 

@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire/compat'
 import {environment} from "../environments/environment.prod";
 import {AppRoutingModule} from "./app-routing.module";
 import { ArticleDetailComponent } from './index-articles/article-detail/article-detail.component';
+import { DetailUserComponent } from './index-user/detail-user/detail-user.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ArticleDetailComponent } from './index-articles/article-detail/article-
     IndexArticlesComponent,
     ArticleListComponent,
     ArticleCreateComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    DetailUserComponent
   ],
   imports: [
     BrowserModule,

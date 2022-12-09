@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DtoInputArticle} from "../dto/dtoInputArticle";
 import {ArticlesService} from "../articles.service";
 import {ActivatedRoute} from "@angular/router";
+import {DtoInputUser} from "../../index-user/dto/dto-input-user";
+import {UserService} from "../../index-user/user.service";
 
 @Component({
   selector: 'app-article-detail',
@@ -11,11 +13,13 @@ import {ActivatedRoute} from "@angular/router";
 export class ArticleDetailComponent implements OnInit {
 
   article: DtoInputArticle | null = null;
+  user: DtoInputUser | null = null;
 
   idUser: number = 0;
 
   constructor(private _articleService: ArticlesService,
-              private _route: ActivatedRoute) {
+              private _route: ActivatedRoute,
+              private _userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -25,7 +29,6 @@ export class ArticleDetailComponent implements OnInit {
         this.fetchArticleById(id);
       }
     });
-
   }
 
   private fetchArticleById(id: number) {
@@ -34,7 +37,17 @@ export class ArticleDetailComponent implements OnInit {
       .subscribe(article => {
         this.article = article,
           this.idUser = article.idUser,
-          console.log(this.idUser)
+          this.fetchUserById(this.idUser),
+          console.log(this.idUser,)
+      });
+  }
+
+  private fetchUserById(id: number) {
+    this._userService
+      .fetchById(id)
+      .subscribe(user => {
+        this.user = user,
+          console.log(this.user)
       });
   }
 

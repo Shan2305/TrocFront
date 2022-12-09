@@ -7,10 +7,19 @@ LISTE ARTICLES
   <img src="{{article.urlImage}}"/>
   </div>
 
-  <div class="profil">
-    BLOC 2
+  <div class="profil" *ngIf="user">
+    Voici le profil du troceur
     <br>
-    IDUSER : {{article.idUser}}
+    Pseudo : {{user.pseudo}}
+    <br>
+    localite : {{user.localite}}
+    <br>
+   Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
+    <br>
+    <a href="#">
+    Accéder au profil ?
+    </a>
+
   </div>
 </div>
 </body>
