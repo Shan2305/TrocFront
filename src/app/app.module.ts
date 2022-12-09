@@ -15,6 +15,7 @@ import {environment} from "../environments/environment.prod";
 import {AppRoutingModule} from "./app-routing.module";
 import { ArticleDetailComponent } from './index-articles/article-detail/article-detail.component';
 import { DetailUserComponent } from './index-user/detail-user/detail-user.component';
+import { IndexCommentaryComponent } from './index-commentary/index-commentary.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DetailUserComponent } from './index-user/detail-user/detail-user.compon
     ArticleListComponent,
     ArticleCreateComponent,
     ArticleDetailComponent,
-    DetailUserComponent
+    DetailUserComponent,
+    IndexCommentaryComponent
   ],
   imports: [
     BrowserModule,

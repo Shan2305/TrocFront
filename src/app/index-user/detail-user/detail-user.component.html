@@ -3,7 +3,7 @@
 <div class="container" *ngIf="user">
   <span class="name">Profil de l'utilisateur {{user.pseudo}}</span>
   <div class="profil">
-    <ul>
+    <ul class="ulProfil">
       <li>
         PSEUDO : {{user.pseudo}}
       </li>
@@ -16,8 +16,9 @@
     </ul>
   </div>
 
+  <div class="ArticleANDCommentary">
   <div class="otherArticle" *ngIf="articles">
-    <ul>
+    <ul class="ulArticles">
       <li *ngFor="let article of articles">
         <a routerLink="../../detail/{{article.id}}">
 
@@ -27,10 +28,25 @@
               <img src={{article.urlImage}}/>
             </div>
           </div>
-
         </a>
       </li>
     </ul>
+  </div>
+    <div class="commentary">
+      <div class="commentaryList" *ngIf="commentaries">
+        <ul>
+          <li *ngFor="let commentary of commentaries">
+            {{commentary.nom}}
+            <br>
+            {{commentary.note}}
+            <br>
+            {{commentary.message}}
+            <br>
+
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 </body>

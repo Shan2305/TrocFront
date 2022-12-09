@@ -31,10 +31,25 @@ body {
   border: 1px solid;
   background: yellow;
   height: 100%;
-  width: 100%;
+  width: 70%;
   overflow: auto;
 }
-ul {
+.commentary
+{
+  border: 1px solid;
+  background: #f700ff;
+  height: 100%;
+  width: 30%;
+  overflow: auto;
+}
+.ArticleANDCommentary
+{
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+}
+.ulArticles, .ulProfil {
   background: #1DA1F2;
   list-style: none;
   display: flex;

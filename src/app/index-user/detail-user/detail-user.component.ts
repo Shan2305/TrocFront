@@ -4,6 +4,8 @@ import {UserService} from "../user.service";
 import {ActivatedRoute} from "@angular/router";
 import {DtoInputArticle} from "../../index-articles/dto/dtoInputArticle";
 import {ArticlesService} from "../../index-articles/articles.service";
+import {DtoInputCommentary} from "../../index-commentary/dto/DtoInputCommentary";
+import {CommentaryService} from "../../index-commentary/commentary.service";
 
 @Component({
   selector: 'app-detail-user',
@@ -12,10 +14,14 @@ import {ArticlesService} from "../../index-articles/articles.service";
 })
 export class DetailUserComponent implements OnInit {
   user: DtoInputUser | null = null;
+
   articles: DtoInputArticle[] = [];
+
+  commentaries: DtoInputCommentary[] = [];
 
   constructor(private _userService: UserService,
               private _articleService: ArticlesService,
+              private _commentaryService: CommentaryService,
               private _route: ActivatedRoute) {
   }
 
@@ -23,8 +29,10 @@ export class DetailUserComponent implements OnInit {
     this._route.paramMap.subscribe(args => {
       if (args.has("id")) {
         const id = Number(args.get("id"));
+
         this.fetchUserById(id);
         this.fetchAllArticleByUserId(id);
+        this.fetchCommentaryByIdUser(id);
       }
     });
   }
@@ -45,6 +53,15 @@ export class DetailUserComponent implements OnInit {
         this.articles = article,
           console.log(this.articles)
       });
+  }
+
+  private fetchCommentaryByIdUser(id: number) {
+    this._commentaryService
+      .fetchById(id)
+      .subscribe(commentarie => {
+        this.commentaries = commentarie,
+          console.log(this.commentaries)
+      })
   }
 
 
