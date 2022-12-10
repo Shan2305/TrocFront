@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './index-user/user-list/user-list.component';
 import { UserCreateComponent } from './index-user/user-create/user-create.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { IndexUserComponent } from './index-user/index-user.component';
 import { IndexArticlesComponent } from './index-articles/index-articles.component';
@@ -36,7 +36,8 @@ import { IndexCommentaryComponent } from './index-commentary/index-commentary.co
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

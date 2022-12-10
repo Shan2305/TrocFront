@@ -13,6 +13,7 @@ import {UserService} from "../../index-user/user.service";
 export class ArticleDetailComponent implements OnInit {
 
   article: DtoInputArticle | null = null;
+  articles: DtoInputArticle[] | null = null;
   user: DtoInputUser | null = null;
 
   idUser: number = 0;
@@ -30,6 +31,8 @@ export class ArticleDetailComponent implements OnInit {
       }
     });
   }
+
+
 
   private fetchArticleById(id: number) {
     this._articleService

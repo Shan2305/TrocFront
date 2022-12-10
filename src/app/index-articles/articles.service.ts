@@ -28,6 +28,10 @@ export class ArticlesService {
     return this._httpClient.get<DtoInputArticle>(ArticlesService.ENTRY_POINT+'/Id/'+id);
   }
 
+  fetchByName(name: String): Observable<DtoInputArticle[]> {
+    return this._httpClient.get<DtoInputArticle[]>(ArticlesService.ENTRY_POINT+'/search?name='+name);
+  }
+
   //https://localhost:7018/api/v1/Article/Id_Users/1
   fetchAllArticleByUserId(id: number): Observable<DtoInputArticle[]> {
   return this._httpClient.get<DtoInputArticle[]>(ArticlesService.ENTRY_POINT+'/Id_Users/'+id);

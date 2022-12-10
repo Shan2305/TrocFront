@@ -1,8 +1,14 @@
 <body>
 LISTE ARTICLES
 <div class="container" *ngIf="articles.length">
+  <form  (ngSubmit)='affichage(recherche.value)' >
+    <input #recherche type="text" name="test">
+
+    <input type="submit" value="Rechercher" >
+  </form>
   <ul>
-    <li *ngFor="let article of articles">
+
+    <li *ngFor="let article of articles " >
       <a routerLink="../detail/{{article.id}}">
         <div class="casArticle">
           <span class="articleName">{{article.name}}</span>
@@ -11,7 +17,10 @@ LISTE ARTICLES
           </div>
         </div>
       </a>
+
     </li>
+
+
   </ul>
 </div>
 </body>
