@@ -1,0 +1,19 @@
+<body>
+
+<div class="container" *ngIf="user">
+  <span class="name">Profil de l'utilisateur {{user.pseudo}}</span>
+  <div class="profil">
+    <ul class="ulProfil">
+      <li>
+        PSEUDO : {{user.pseudo}}
+      </li>
+      <li>
+        EMAIL : {{user.email}}
+      </li>
+      <li>
+        LOCALITE : {{user.localite}}
+      </li>
+    </ul>
+  </div>
+</div>
+</body>

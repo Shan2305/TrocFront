@@ -10,7 +10,9 @@ export const environment = {
 
   ApiUrlCommentary:"https://localhost:7018/api/v1/Commentary",
 
-  ApiUrlCategory:"https://localhost:7018/api/v1/Category"
+  ApiUrlCategory:"https://localhost:7018/api/v1/Category",
+
+  ApiUrlAuthentification:"https://localhost:7018/api/Authentication/login"
 
 
 };

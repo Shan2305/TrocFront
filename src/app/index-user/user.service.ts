@@ -28,6 +28,11 @@ export class UserService {
     return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT+'/'+id);
   }
 
+  //https://localhost:7018/api/v1/Users/fetchById
+  fetchByIdToken(): Observable<DtoInputUser> {
+    return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT+'/fetchById');
+  }
+
 
 
 }

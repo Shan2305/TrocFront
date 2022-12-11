@@ -7,6 +7,7 @@ import {IndexArticlesComponent} from "./index-articles/index-articles.component"
 import * as path from "path";
 import {DetailUserComponent} from "./index-user/detail-user/detail-user.component";
 import {UserListComponent} from "./index-user/user-list/user-list.component";
+import {UserProfileComponent} from "./index-user/user-profile/user-profile.component";
 
 
 const routes: Routes = [
@@ -26,7 +27,11 @@ const routes: Routes = [
   },
   {
     path: 'listUsers', component: UserListComponent
-  }
+  },
+  {
+    path: 'profile', component: UserProfileComponent
+  },
+
 
 ]
 

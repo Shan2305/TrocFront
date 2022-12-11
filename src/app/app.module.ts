@@ -17,6 +17,8 @@ import { ArticleDetailComponent } from './index-articles/article-detail/article-
 import { DetailUserComponent } from './index-user/detail-user/detail-user.component';
 import { IndexCommentaryComponent } from './index-commentary/index-commentary.component';
 import { IndexCategoryComponent } from './index-category/index-category.component';
+import { AuthentificationFormComponent } from './index-authentification/authentification-form/authentification-form.component';
+import { UserProfileComponent } from './index-user/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { IndexCategoryComponent } from './index-category/index-category.componen
     ArticleDetailComponent,
     DetailUserComponent,
     IndexCommentaryComponent,
-    IndexCategoryComponent
+    IndexCategoryComponent,
+    AuthentificationFormComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
