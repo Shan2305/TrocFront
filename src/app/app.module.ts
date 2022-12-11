@@ -16,6 +16,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { ArticleDetailComponent } from './index-articles/article-detail/article-detail.component';
 import { DetailUserComponent } from './index-user/detail-user/detail-user.component';
 import { IndexCommentaryComponent } from './index-commentary/index-commentary.component';
+import { IndexCategoryComponent } from './index-category/index-category.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { IndexCommentaryComponent } from './index-commentary/index-commentary.co
     ArticleCreateComponent,
     ArticleDetailComponent,
     DetailUserComponent,
-    IndexCommentaryComponent
+    IndexCommentaryComponent,
+    IndexCategoryComponent
   ],
   imports: [
     BrowserModule,

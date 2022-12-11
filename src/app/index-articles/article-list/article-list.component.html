@@ -1,13 +1,24 @@
 <body>
 LISTE ARTICLES
 <div class="container" *ngIf="articles.length">
+
   <form  (ngSubmit)='affichage(recherche.value)' >
     <input #recherche type="text" name="test">
-
     <input type="submit" value="Rechercher" >
   </form>
-  <ul>
 
+  <div *ngIf="categories.length">
+    <form (ngSubmit)="filtreCategories(combobox.value)">
+  <select #combobox>
+    <option *ngFor="let category of categories">
+      {{category.nomCategory}}
+    </option>
+  </select>
+      <input type="submit" value="Filtrer">
+    </form>
+  </div>
+
+  <ul>
     <li *ngFor="let article of articles " >
       <a routerLink="../detail/{{article.id}}">
         <div class="casArticle">

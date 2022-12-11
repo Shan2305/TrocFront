@@ -8,7 +8,9 @@ export const environment = {
 
   ApiUrlArticle :"https://localhost:7018/api/v1/Article",
 
-  ApiUrlCommentary:"https://localhost:7018/api/v1/Commentary"
+  ApiUrlCommentary:"https://localhost:7018/api/v1/Commentary",
+
+  ApiUrlCategory:"https://localhost:7018/api/v1/Category"
 
 
 };
