@@ -25,9 +25,11 @@ export class AuthentificationService {
         email: email,
         mdp: mdp
       },
-      AuthentificationService.httpOptions,
+      {responseType:'text'}
     );
 
-    localStorage.setItem("cookie",email.toString())
+
+
+
   }
 }
