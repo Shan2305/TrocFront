@@ -12,13 +12,14 @@ import {DtoInputUser} from "../../index-user/dto/dto-input-user";
 })
 export class AuthentificationFormComponent implements OnInit {
 
-  token:string | null= null;
-  form : FormGroup = this.fb.group({
+  token: string | null = null;
+  form: FormGroup = this.fb.group({
     email: this.fb.control("", Validators.required),
     mdp: this.fb.control("", Validators.required)
   });
 
-  constructor(private fb : FormBuilder, private _authentificationService: AuthentificationService) { }
+  constructor(private fb: FormBuilder, private _authentificationService: AuthentificationService) {
+  }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,7 @@ export class AuthentificationFormComponent implements OnInit {
   //    this._articleService.create(dto).subscribe(article => this.articles.push(article));
   login() {
     this._authentificationService
-      .login(this.form.value.email,this.form.value.mdp)
+      .login(this.form.value.email, this.form.value.mdp)
       .subscribe();
 
   }

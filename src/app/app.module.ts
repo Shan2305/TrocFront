@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './index-user/user-list/user-list.component';
 import { UserCreateComponent } from './index-user/user-create/user-create.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { IndexUserComponent } from './index-user/index-user.component';
 import { IndexArticlesComponent } from './index-articles/index-articles.component';
 import { ArticleListComponent } from './index-articles/article-list/article-list.component';
@@ -19,6 +19,9 @@ import { IndexCommentaryComponent } from './index-commentary/index-commentary.co
 import { IndexCategoryComponent } from './index-category/index-category.component';
 import { AuthentificationFormComponent } from './index-authentification/authentification-form/authentification-form.component';
 import { UserProfileComponent } from './index-user/user-profile/user-profile.component';
+import {reauthenticateWithCredential} from "@angular/fire/auth";
+import {AuthentificationService} from "./index-authentification/authentification.service";
+
 
 
 @NgModule({
@@ -45,7 +48,11 @@ import { UserProfileComponent } from './index-user/user-profile/user-profile.com
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, useClass:AuthentificationService, multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

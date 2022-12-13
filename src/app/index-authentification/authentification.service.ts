@@ -1,15 +1,13 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {DtoLogin} from "./dto/dto-login";
-import {AuthentificationFormComponent} from "./authentification-form/authentification-form.component";
-import {getXHRResponse} from "rxjs/internal/ajax/getXHRResponse";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthentificationService {
+export class AuthentificationService implements HttpInterceptor{
   private static readonly ENTRY_POINT = environment.ApiUrlAuthentification;
   private static readonly httpOptions = {
     headers: new HttpHeaders(({'Content-type': 'application/json'}))
@@ -20,16 +18,20 @@ export class AuthentificationService {
 
   login(email: string, mdp: string): Observable<any> {
 
-    return this._httpClient.post(AuthentificationService.ENTRY_POINT,
+    return this._httpClient.post<any>(AuthentificationService.ENTRY_POINT,
       {
         email: email,
         mdp: mdp
       },
-      {responseType:'text'}
-    );
 
+      );
+  }
 
-
-
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+  {
+    const authReq = req.clone({
+      withCredentials:true
+    });
+    return next.handle(authReq);
   }
 }
