@@ -11,7 +11,7 @@ import {DtoCreateArticle} from "./dto/dto-create-article";
   providedIn: 'root'
 })
 export class ArticlesService {
-  private static readonly ENTRY_POINT = environment.ApiUrlArticle;
+  static readonly ENTRY_POINT = environment.ApiUrlArticle;
 
   constructor(private _httpClient: HttpClient) { }
 
@@ -20,7 +20,8 @@ export class ArticlesService {
   }
 
   create(dto:DtoCreateArticle):Observable<DtoInputArticle>{
-    return this._httpClient.post<DtoInputArticle>( ArticlesService.ENTRY_POINT+"?name="+dto.name+"&urlImage="+dto.urlImage+"&publicationDate="+dto.publicationDate+"&nomCat="+dto.nomCat, dto);
+    return this._httpClient.post<DtoInputArticle>( ArticlesService.ENTRY_POINT+"?name="+dto.name+
+      "&urlImage="+dto.urlImage+"&nomCat="+dto.nomCat+"&description="+dto.description, dto);
   }
 
   //https://localhost:7018/api/v1/Article/Id/33
@@ -39,5 +40,10 @@ export class ArticlesService {
   //https://localhost:7018/api/v1/Article/Id_Users/1
   fetchAllArticleByUserId(id: number): Observable<DtoInputArticle[]> {
   return this._httpClient.get<DtoInputArticle[]>(ArticlesService.ENTRY_POINT+'/Id_Users/'+id);
+  }
+
+
+  fetchAllArticleByUserIdConnected(): Observable<DtoInputArticle[]> {
+    return this._httpClient.get<DtoInputArticle[]>(ArticlesService.ENTRY_POINT+'/Id_Users/');
   }
 }

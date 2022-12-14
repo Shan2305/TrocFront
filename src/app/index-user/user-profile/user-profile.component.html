@@ -13,6 +13,25 @@
       <li>
         LOCALITE : {{user.localite}}
       </li>
+      <li>
+        AJOUTER UN ARTICLE :<app-article-create (articleCreated)="createArticle($event)"></app-article-create>
+      </li>
+    </ul>
+  </div>
+
+  <div class="otherArticle" *ngIf="articles">
+    <ul class="ulArticles">
+      <li *ngFor="let article of articles">
+        <a routerLink="../../detail/{{article.id}}">
+
+          <div class="casArticle">
+            <span class="articleName">{{article.name}}</span>
+            <div class="caseImage">
+              <img src={{article.urlImage}}/>
+            </div>
+          </div>
+        </a>
+      </li>
     </ul>
   </div>
 </div>

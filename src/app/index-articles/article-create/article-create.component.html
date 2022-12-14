@@ -4,18 +4,27 @@
       Nom
       <input type="text" formControlName="name">
     </label>
+    <br>
     <label>
       urlImage
-      <input type="file" formControlName="urlImage">
+      <input type="text" formControlName="urlImage">
     </label>
+    <br>
+
+
+      <div *ngIf="categories.length">
+        <label>nomCat :  </label>
+          <select formControlName="combobox">
+            <option *ngFor="let category of categories">
+            {{category.nomCategory}}
+            </option>
+          </select>
+      </div>
+
     <label>
-      publicationDate :
-      <input type="text" formControlName="publicationDate">
-    </label>
-    <label>
-      nomCat :
-      <input type="text" formControlName="nomCat">
+      description :
+      <input type="text" formControlName="description">
     </label>
   </div>
-  <input type="submit" [disabled]="form.invalid">
+  <input type="submit" value="Create">
 </form>

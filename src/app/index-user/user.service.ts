@@ -5,6 +5,8 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {DtoCreateUser} from "./dto/dto-create-user";
 import {DtoInputArticle} from "../index-articles/dto/dtoInputArticle";
+import {DtoCreateArticle} from "../index-articles/dto/dto-create-article";
+import {ArticlesService} from "../index-articles/articles.service";
 
 @Injectable({
   providedIn: 'root'
