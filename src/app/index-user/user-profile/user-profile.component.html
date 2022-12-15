@@ -1,6 +1,6 @@
 <body>
 
-<div class="container" *ngIf="user">
+<div class="container" *ngIf="user;else error">
   <span class="name">Profil de l'utilisateur {{user.pseudo}}</span>
   <br>
   <a routerLink="../profileUpdate">Modifier profil</a>
@@ -39,3 +39,9 @@
   </div>
 </div>
 </body>
+
+<ng-template #error>
+  <a routerLink="../Connexion">
+    Cliquez ici pour vous connecter!
+  </a>
+</ng-template>

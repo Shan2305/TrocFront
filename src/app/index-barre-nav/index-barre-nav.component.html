@@ -1,0 +1,11 @@
+
+<body>
+<ul>
+  <li><a routerLink="">Accueil</a></li>
+  <li><a routerLink="listUsers">Voir tout les troqueurs</a></li>
+
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+  <li class="profil" *ngIf="user"><a routerLink="profile/">mon profil</a></li>
+  <li class="profil" *ngIf="user==null"><a routerLink="../Connexion">Connexion</a></li>
+</ul>
+</body>

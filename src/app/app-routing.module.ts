@@ -9,6 +9,9 @@ import {DetailUserComponent} from "./index-user/detail-user/detail-user.componen
 import {UserListComponent} from "./index-user/user-list/user-list.component";
 import {UserProfileComponent} from "./index-user/user-profile/user-profile.component";
 import {UserUpdateComponent} from "./index-user/user-update/user-update.component";
+import {
+  AuthentificationFormComponent
+} from "./index-authentification/authentification-form/authentification-form.component";
 
 
 const routes: Routes = [
@@ -34,6 +37,9 @@ const routes: Routes = [
   },
   {
     path: 'profileUpdate', component: UserUpdateComponent
+  },
+  {
+    path: 'Connexion', component: AuthentificationFormComponent
   },
 
 
