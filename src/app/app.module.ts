@@ -21,6 +21,7 @@ import { AuthentificationFormComponent } from './index-authentification/authenti
 import { UserProfileComponent } from './index-user/user-profile/user-profile.component';
 import {reauthenticateWithCredential} from "@angular/fire/auth";
 import {AuthentificationService} from "./index-authentification/authentification.service";
+import { UserUpdateComponent } from './index-user/user-update/user-update.component';
 
 
 
@@ -38,7 +39,8 @@ import {AuthentificationService} from "./index-authentification/authentification
     IndexCommentaryComponent,
     IndexCategoryComponent,
     AuthentificationFormComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

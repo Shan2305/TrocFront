@@ -1,8 +1,7 @@
 export interface DtoInputUser {
-  id:number;
+  id:number | undefined;
   email:string;
   pseudo:string;
   localite:string;
-  mdp:string;
 
 }

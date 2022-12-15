@@ -7,3 +7,18 @@ li{
 img{
   max-width: 10%;
 }
+
+.otherArticle
+{
+  background-color: red;
+  overflow: auto;
+  height: 50%;
+}
+
+.container
+{
+  background-color: yellow;
+  position: absolute;
+  border: 1px solid;
+  height: 70%;
+}

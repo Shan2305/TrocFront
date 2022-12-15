@@ -29,6 +29,7 @@ export class AuthentificationFormComponent implements OnInit {
     this._authentificationService
       .login(this.form.value.email, this.form.value.mdp)
       .subscribe();
-
   }
+
+
 }

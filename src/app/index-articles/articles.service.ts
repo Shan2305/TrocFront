@@ -19,8 +19,9 @@ export class ArticlesService {
     return this._httpClient.get<DtoInputArticle[]>(ArticlesService.ENTRY_POINT);
   }
 
+  //https://localhost:7018/api/v1/Article/Create?name=test2&urlImage=test2&nomCat=Voiture&description=descirption
   create(dto:DtoCreateArticle):Observable<DtoInputArticle>{
-    return this._httpClient.post<DtoInputArticle>( ArticlesService.ENTRY_POINT+"?name="+dto.name+
+    return this._httpClient.post<DtoInputArticle>( ArticlesService.ENTRY_POINT+"/Create?name="+dto.name+
       "&urlImage="+dto.urlImage+"&nomCat="+dto.nomCat+"&description="+dto.description, dto);
   }
 
@@ -46,4 +47,6 @@ export class ArticlesService {
   fetchAllArticleByUserIdConnected(): Observable<DtoInputArticle[]> {
     return this._httpClient.get<DtoInputArticle[]>(ArticlesService.ENTRY_POINT+'/Id_Users/');
   }
+
+
 }

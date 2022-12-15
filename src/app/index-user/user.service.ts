@@ -7,6 +7,7 @@ import {DtoCreateUser} from "./dto/dto-create-user";
 import {DtoInputArticle} from "../index-articles/dto/dtoInputArticle";
 import {DtoCreateArticle} from "../index-articles/dto/dto-create-article";
 import {ArticlesService} from "../index-articles/articles.service";
+import {UserUpdateComponent} from "./user-update/user-update.component";
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,12 @@ export class UserService {
     return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT+'/fetchById');
   }
 
+  //https://localhost:7018/api/v1/Users?email=flo&pseudo=flo&localite=horrues&id=1
+  update(dto:DtoInputUser):Observable<any>
+  {
+    return this._httpClient.put(UserService.ENTRY_POINT+
+      "?email="+dto.email+"?pseudo="+dto.localite+"?id="+dto.id, dto);
+  }
 
 
 }

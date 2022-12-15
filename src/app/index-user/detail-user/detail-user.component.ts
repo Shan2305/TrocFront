@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {DtoInputUser} from "../dto/dto-input-user";
 import {UserService} from "../user.service";
 import {ActivatedRoute} from "@angular/router";
@@ -6,6 +6,7 @@ import {DtoInputArticle} from "../../index-articles/dto/dtoInputArticle";
 import {ArticlesService} from "../../index-articles/articles.service";
 import {DtoInputCommentary} from "../../index-commentary/dto/DtoInputCommentary";
 import {CommentaryService} from "../../index-commentary/commentary.service";
+import {DtoCreateArticle} from "../../index-articles/dto/dto-create-article";
 
 @Component({
   selector: 'app-detail-user',
@@ -16,6 +17,8 @@ export class DetailUserComponent implements OnInit {
   user: DtoInputUser | null = null;
 
   articles: DtoInputArticle[] = [];
+
+  UserUpdate  :EventEmitter<DtoInputUser> = new EventEmitter<DtoInputUser>();
 
   commentaries: DtoInputCommentary[] = [];
 

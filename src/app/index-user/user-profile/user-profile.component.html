@@ -2,6 +2,8 @@
 
 <div class="container" *ngIf="user">
   <span class="name">Profil de l'utilisateur {{user.pseudo}}</span>
+  <br>
+  <a routerLink="../profileUpdate">Modifier profil</a>
   <div class="profil">
     <ul class="ulProfil">
       <li>
@@ -13,6 +15,7 @@
       <li>
         LOCALITE : {{user.localite}}
       </li>
+
       <li>
         AJOUTER UN ARTICLE :<app-article-create (articleCreated)="createArticle($event)"></app-article-create>
       </li>
