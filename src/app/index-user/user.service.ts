@@ -37,10 +37,9 @@ export class UserService {
   }
 
   //https://localhost:7018/api/v1/Users?email=flo&pseudo=flo&localite=horrues&id=1
-  update(dto:DtoInputUser):Observable<any>
+  update(email: string, pseudo: string, localite: string, id: any):Observable<any>
   {
-    return this._httpClient.put(UserService.ENTRY_POINT+
-      "?email="+dto.email+"?pseudo="+dto.localite+"?id="+dto.id, dto);
+    return this._httpClient.put(UserService.ENTRY_POINT+ "?email="+email+"&pseudo="+pseudo+"&localite="+localite+"&id="+id,"");
   }
 
 

@@ -1,6 +1,7 @@
 <div  class="profil" *ngIf="user">
   <form [formGroup]="form" (ngSubmit)="Update()">
   <ul class="ulProfil">
+
     <li>
       PSEUDO : <input formControlName="name" value="{{user.pseudo}}">
     </li>
