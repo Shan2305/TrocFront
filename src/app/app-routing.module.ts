@@ -12,6 +12,7 @@ import {UserUpdateComponent} from "./index-user/user-update/user-update.componen
 import {
   AuthentificationFormComponent
 } from "./index-authentification/authentification-form/authentification-form.component";
+import {ArticleUpdateComponent} from "./index-articles/article-update/article-update.component";
 
 
 const routes: Routes = [
@@ -37,6 +38,9 @@ const routes: Routes = [
   },
   {
     path: 'profileUpdate', component: UserUpdateComponent
+  },
+  {
+    path: 'articleUpdate/:id', component: ArticleUpdateComponent
   },
   {
     path: 'Connexion', component: AuthentificationFormComponent

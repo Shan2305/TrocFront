@@ -16,7 +16,7 @@ export class UserUpdateComponent implements OnInit {
 
   form: FormGroup = this.fb.group({
     name: this.fb.control("", Validators.required),
-    email: this.fb.control("", Validators.required),
+    nomCategories: this.fb.control("", Validators.required),
     localite: this.fb.control("", Validators.required)
   });
 

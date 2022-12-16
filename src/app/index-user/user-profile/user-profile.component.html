@@ -25,8 +25,7 @@
   <div class="otherArticle" *ngIf="articles">
     <ul class="ulArticles">
       <li *ngFor="let article of articles">
-        <a routerLink="../../detail/{{article.id}}">
-
+        <a routerLink="../articleUpdate/{{article.id}}">
           <div class="casArticle">
             <span class="articleName">{{article.name}}</span>
             <div class="caseImage">

@@ -39,7 +39,6 @@ export class ArticleDetailComponent implements OnInit {
       .fetchById(id)
       .subscribe(article => {
         this.article = article,
-          this.idUser = article.idUser,
           this.fetchUserById(this.idUser),
           console.log(this.idUser),
           console.log(this.article)
