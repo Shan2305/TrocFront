@@ -4,7 +4,7 @@
 body {
   margin-left: 9%;
   margin-right: 9%;
-
+  background: #828a00;
   position: absolute;
   border: 1px solid;
   height: 80%;
@@ -22,14 +22,14 @@ body {
 .profil
 {
   border: 1px solid;
-  background-color: red;
+
   height: 25%;
   width: 100%;
 }
 .otherArticle
 {
   border: 1px solid;
-  background: yellow;
+
   height: 100%;
   width: 70%;
   overflow: auto;
@@ -37,7 +37,7 @@ body {
 .commentary
 {
   border: 1px solid;
-  background: #f700ff;
+
   height: 100%;
   width: 30%;
   overflow: auto;
@@ -50,7 +50,7 @@ body {
   flex-direction: row;
 }
 .ulArticles, .ulProfil {
-  background: #1DA1F2;
+
   list-style: none;
   display: flex;
   justify-content: space-evenly;
@@ -63,8 +63,7 @@ body {
   text-align: center;
   margin: auto;
   border: 1px solid;
-  background-color: blue;
-  border-radius: 1px;
+
   width: 300px;
   height: 200px;
   margin: 5px;
@@ -87,7 +86,7 @@ a{
 {
   border: 1px solid;
   text-align: center;
-  background: #da9006;
+
 }
 
 

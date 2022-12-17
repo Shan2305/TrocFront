@@ -1,5 +1,6 @@
-<form [formGroup]="form" (ngSubmit)="sendArticle()">
-  <div>
+<div>
+  <form [formGroup]="form" (ngSubmit)="sendArticle()">
+
     <label>
       Nom
       <input type="text" formControlName="name">
@@ -12,19 +13,20 @@
     <br>
 
 
-      <div *ngIf="categories.length">
-        <label>nomCat :  </label>
-          <select formControlName="combobox">
-            <option *ngFor="let category of categories">
-            {{category.nomCategory}}
-            </option>
-          </select>
-      </div>
+    <div *ngIf="categories.length">
+      <label>nomCat : </label>
+      <select formControlName="combobox">
+        <option *ngFor="let category of categories">
+          {{category.nomCategory}}
+        </option>
+      </select>
+    </div>
 
     <label>
       description :
       <input type="text" formControlName="description">
     </label>
-  </div>
-  <input type="submit" value="Create">
-</form>
+
+    <input type="submit" value="Create">
+  </form>
+</div>

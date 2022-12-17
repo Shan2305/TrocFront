@@ -1,17 +1,26 @@
+<body>
 <div  class="profil" *ngIf="user">
   <form [formGroup]="form" (ngSubmit)="Update()">
+    <table>
   <ul class="ulProfil">
-
-    <li>
-      PSEUDO : <input formControlName="name" value="{{user.pseudo}}">
-    </li>
-    <li>
-      EMAIL : <input formControlName="email" value ="{{user.email}}">
-    </li>
-    <li>
-      LOCALITE : <input formControlName="localite" value ="{{user.localite}}">
-    </li>
+    <tr>
+      <td>PSEUDO : </td>
+      <td><input formControlName="name" value="{{user.pseudo}}"></td>
+    </tr>
+    <tr>
+      <td>EMAIL : </td>
+      <td><input formControlName="email" value ="{{user.email}}"></td>
+    </tr>
+    <tr>
+      <td>LOCALITE :</td>
+      <td><input formControlName="localite" value ="{{user.localite}}"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Modifier mon profil"></td>
+    </tr>
   </ul>
-    <input type="submit" value="Modifier">
+    </table>
   </form>
 </div>
+</body>

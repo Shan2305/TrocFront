@@ -9,9 +9,12 @@ body {
 }
 .container
 {
-  border: 1px solid;
-  background-color: #da9006;
-  height: 70%;
+  overflow: auto;
+  margin-left: 8%;
+  margin-right: 8%;
+  background-color: #828a00;
+  height: 80%;
+  width: 80%;
 }
 
 
@@ -27,8 +30,6 @@ ul {
 .caseImage {
   text-align: center;
   margin: auto;
-  border: 1px solid;
-  background-color: blue;
   border-radius: 1px;
   width: 300px;
   height: 200px;
@@ -53,5 +54,23 @@ a{
 {
   border: 1px solid;
   text-align: center;
+}
+
+.recherche
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.rechercheBar
+{
+  width: 50%;
+}
+
+#recherche
+{
+  width: 80%;
 }
 

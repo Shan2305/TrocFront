@@ -1,0 +1,18 @@
+body
+{
+  display: flex;
+  position: absolute;
+  background-color: #828a00;
+  margin-left: 8%;
+  margin-right: 8%;
+  height: 80%;
+  width: 80%;
+}
+.profil
+{
+  margin: auto;
+  text-align: center;
+}
+ul {
+  list-style: none;
+}

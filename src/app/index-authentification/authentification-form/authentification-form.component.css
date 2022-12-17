@@ -1,8 +1,18 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-  background-color: #9f9da7;
+  background-color: #828a00;
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
   color: #2b3e51;
+  height: 80%;
+  width: 80%;
+  margin-left: 8%;
+  margin-right: 8%;
+  position: absolute;
 }
 
 h2 {
@@ -36,7 +46,8 @@ a:active:hover {
 
 #login-form-wrap {
   background-color: #fff;
-  width: 35%;
+  width: 50%;
+  height: 80%;
   margin: 30px auto;
   text-align: center;
   padding: 20px 0 0 0;
@@ -152,4 +163,5 @@ input[type="submit"]:hover {
   width: 100%;
   padding: 10px 0;
   border-radius: 0 0 4px 4px;
+  margin-bottom: 0px;
 }

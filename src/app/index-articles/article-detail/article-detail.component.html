@@ -1,12 +1,14 @@
-<body>
-LISTE ARTICLES
+<body *ngIf="article">
+<div class="titre">
+  <h1>Voici le détail de l'article {{article.name}}</h1>
+</div>
 <div class="container" *ngIf="article">
 
   <div class=containerImg>
     <div class="name">{{article.name}}</div>
-    <--<span>"catégorie"</span>-->
+    <span>catégorie</span>{{article.nomCat}}
     <div> Description de l'article : <br> {{article.description}}</div>
-  <img src="{{article.urlImage}}"/>
+    <img src="{{article.urlImage}}"/>
   </div>
 
   <div class="profil" *ngIf="user">
@@ -16,15 +18,16 @@ LISTE ARTICLES
     <br>
     localite : {{user.localite}}
     <br>
-   Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
+    Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
     <br>
     <a routerLink="../../detailUser/{{user.id}}">
-    Accéder au profil ?
+      Accéder au profil ?
     </a>
 
   </div>
 </div>
 </body>
+
 <router-outlet></router-outlet>
 
 

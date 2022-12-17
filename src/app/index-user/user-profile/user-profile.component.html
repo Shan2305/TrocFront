@@ -1,40 +1,86 @@
 <body>
 
 <div class="container" *ngIf="user;else error">
-  <span class="name">Profil de l'utilisateur {{user.pseudo}}</span>
-  <br>
-  <a routerLink="../profileUpdate">Modifier profil</a>
   <div class="profil">
-    <ul class="ulProfil">
-      <li>
-        PSEUDO : {{user.pseudo}}
-      </li>
-      <li>
-        EMAIL : {{user.email}}
-      </li>
-      <li>
-        LOCALITE : {{user.localite}}
-      </li>
+    <div class="name">Bienvenue {{user.pseudo}} !</div>
+    <br>
+    <div class="titre">
+      <a routerLink="../profileUpdate">Clique ici pour modifier ton profil !</a>
+    </div>
+    <table class="profilTable">
+      <ul class="ulProfil">
+        <tr>
+          <td>PSEUDO :</td>
+          <td>{{user.pseudo}}</td>
+        </tr>
+        <tr>
+          <td>EMAIL :</td>
+          <td>{{user.email}}</td>
+        </tr>
+        <tr>
+          <td>LOCALITE :</td>
+          <td>{{user.localite}}</td>
+        </tr>
 
-      <li>
-        AJOUTER UN ARTICLE :<app-article-create (articleCreated)="createArticle($event)"></app-article-create>
-      </li>
-    </ul>
+      </ul>
+    </table>
+  </div>
+
+  <div class="create">
+    <div class="formCreate">
+      <form [formGroup]="form" (ngSubmit)="sendArticle()">
+        <table>
+          <tr>
+            <td>Nom</td>
+            <td><input type="text" formControlName="name"></td>
+          </tr>
+
+          <tr>
+            <td>urlImage</td>
+            <td><input type="text" formControlName="urlImage"></td>
+          </tr>
+
+          <tr *ngIf="categories.length">
+            <td>nomCat :</td>
+            <td>
+              <select formControlName="combobox">
+                <option *ngFor="let category of categories">
+                  {{category.nomCategory}}
+                </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>description :</td>
+            <td><input type="text" formControlName="description"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="Ajouter un article à mon profil !"></td>
+          </tr>
+        </table>
+      </form>
+    </div>
   </div>
 
   <div class="otherArticle" *ngIf="articles">
-    <ul class="ulArticles">
-      <li *ngFor="let article of articles">
-        <a routerLink="../articleUpdate/{{article.id}}">
-          <div class="casArticle">
-            <span class="articleName">{{article.name}}</span>
-            <div class="caseImage">
-              <img src={{article.urlImage}}/>
+    <div class="titre">
+      Voici tout tes articles
+    </div>
+    <div>
+      <ul class="ulArticles">
+        <li *ngFor="let article of articles">
+          <a routerLink="../articleUpdate/{{article.id}}">
+            <div class="casArticle">
+              <span class="articleName">{{article.name}}</span>
+              <div class="caseImage">
+                <img src={{article.urlImage}}/>
+              </div>
             </div>
-          </div>
-        </a>
-      </li>
-    </ul>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 </body>

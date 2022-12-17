@@ -1,0 +1,33 @@
+body
+{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #828a00;
+  margin-left: 8%;
+  margin-right: 8%;
+  height: 80%;
+  width: 80%;
+}
+.container
+{
+  margin: auto;
+  border: 1px solid;
+}
+.profil
+{
+  text-align: center;
+}
+.modif
+{
+  text-align: center;
+}
+ul
+{
+  list-style: none;
+}
+td
+{
+  text-align: left;
+}
+
