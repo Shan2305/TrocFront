@@ -48,5 +48,8 @@ export class ArticlesService {
     return this._httpClient.get<DtoInputArticle[]>(ArticlesService.ENTRY_POINT+'/Id_Users/');
   }
 
-
+//https://localhost:7018/api/v1/Article?name=arbremodif&description=j%27ai%20modif&url=https%3A%2F%2Fwww.pngfind.com%2Fpngs%2Fm%2F29-293731_tubes-arbres-et-verdures-arbre-png-architecture-tools.png&id=1
+  update(name:string, description: string, url:string, id: number | undefined):Observable<any> {
+    return this._httpClient.put(ArticlesService.ENTRY_POINT+"?name="+name+"&description="+description+"&url="+url+"&id="+id,"");
+  }
 }

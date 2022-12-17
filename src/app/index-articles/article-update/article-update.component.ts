@@ -5,6 +5,7 @@ import {UserService} from "../../index-user/user.service";
 import {ArticlesService} from "../articles.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {DtoUpdateArticle} from "../dto/DtoUpdateArticle";
 
 @Component({
   selector: 'app-article-update',
@@ -15,12 +16,11 @@ export class ArticleUpdateComponent implements OnInit {
 
   user: DtoInputUser | null = null;
   article: DtoInputArticle | null = null;
-  articleUpdate: DtoInputArticle | null = null;
+  articleUpdate: DtoUpdateArticle | null = null;
   idUser: number = 0;
 
   form: FormGroup = this.fb.group({
     name: this.fb.control("", Validators.required),
-    nomCategorie: this.fb.control("", Validators.required),
     description: this.fb.control("", Validators.required),
     url: this.fb.control("", Validators.required)
   });
@@ -61,13 +61,6 @@ export class ArticleUpdateComponent implements OnInit {
 
 
   Update() {
-    this.articleUpdate = {
-      id: this.article?.id,
-      name:this.form.value.name,
-      urlImage: this.form.value.url,
-      description: this.form.value.description,
-    }
-    return this._userService.update(this.form.value.email, this.form.value.name, this.form.value.localite, this.user?.id).subscribe();
-
+    return this._articleService.update(this.form.value.name, this.form.value.description, this.form.value.url, this.article?.id).subscribe();
   }
 }

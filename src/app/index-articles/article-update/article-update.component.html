@@ -1,25 +1,28 @@
 <body>
-<h2>Modifer un article</h2>
-<form [formGroup]="form" (ngSubmit)="Update()">
-<ul>
-    <li>
-      Nom : <input formControlName="name" value="{{article.name}}">
-    </li>
-    <li>
-      Description : <input formControlName="description" value="{{article.description}}">
-    </li>
-    <li>
-      URL de l'image : <input formControlName="url" value="{{article.urlImage}}">
-    </li>
-    <input type="submit" value="Modifier">
-</ul>
-</form>
-  <div class="profil" *ngIf="user">
-    <a routerLink="../../profile">
-      Retourner à votre profile
-    </a>
+<div *ngIf="article">
+  <h2>Modifer un article</h2>
+  <form [formGroup]="form" (ngSubmit)="Update()">
+    <ul>
+      <li>
+        Nom : <input formControlName="name" value="{{article.name}}">
+      </li>
+      <li>
+        Description : <input formControlName="description" value="{{article.description}}">
+      </li>
+      <li>
+        URL de l'image : <input formControlName="url" value="{{article.urlImage}}">
+      </li>
+      <input type="submit" value="Modifier">
+    </ul>
+  </form>
+</div>
 
-  </div>
+<div class="profil" *ngIf="user">
+  <a routerLink="../../profile">
+    Retourner à votre profile
+  </a>
+
+</div>
 </body>
 <router-outlet></router-outlet>
 
