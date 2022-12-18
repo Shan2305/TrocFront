@@ -17,21 +17,21 @@
   </div>
 
   <div class="ArticleANDCommentary">
-  <div class="otherArticle" *ngIf="articles">
-    <ul class="ulArticles">
-      <li *ngFor="let article of articles">
-        <a routerLink="../../detail/{{article.id}}">
+    <div class="otherArticle" *ngIf="articles">
+      <ul class="ulArticles">
+        <li *ngFor="let article of articles">
+          <a routerLink="../../detail/{{article.id}}">
 
-          <div class="casArticle">
-            <span class="articleName">{{article.name}}</span>
-            <div class="caseImage">
-              <img src={{article.urlImage}}/>
+            <div class="casArticle">
+              <span class="articleName">{{article.name}}</span>
+              <div class="caseImage">
+                <img src={{article.urlImage}}/>
+              </div>
             </div>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
+          </a>
+        </li>
+      </ul>
+    </div>
     <div class="commentary">
       <div class="commentaryList" *ngIf="commentaries">
         <ul>
@@ -46,7 +46,64 @@
           </li>
         </ul>
       </div>
+      <div *ngIf="userConnected" class="addCommentary">
+        <h2>Ajouter un commentaire</h2>
+        <div>
+          <form [formGroup]="form" (ngSubmit)="sendCommentary()">
+            <table>
+              <tr>
+                <td>Quelle note voulez vous mettre ?</td>
+                <td><select formControlName="note">
+                  <option>
+                    1
+                  </option>
+                  <option>
+                    2
+                  </option>
+                  <option>
+                    3
+                  </option>
+                  <option>
+                    4
+                  </option>
+                  <option>
+                    5
+                  </option>
+                  <option>
+                    6
+                  </option>
+                  <option>
+                    7
+                  </option>
+                  <option>
+                    8
+                  </option>
+                  <option>
+                    9
+                  </option>
+                  <option>
+                    10
+                  </option>
+
+                </select></td>
+              </tr>
+              <tr>
+                <td>Entrez votre message</td>
+                <td>
+                  <textarea formControlName="message">
+                </textarea>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input type="submit" value = "ajouter commentaire" [disabled]="(form.invalid)"></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
 </body>

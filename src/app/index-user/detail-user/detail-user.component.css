@@ -37,10 +37,23 @@ body {
 .commentary
 {
   border: 1px solid;
-
   height: 100%;
   width: 30%;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentaryList
+{
+  height: 30%;
+  overflow: auto;
+}
+.addCommentary
+{
+  border: 1px solid;
+  height: 70%;
+  text-align: center;
 }
 .ArticleANDCommentary
 {

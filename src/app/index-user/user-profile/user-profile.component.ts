@@ -32,7 +32,6 @@ export class UserProfileComponent implements OnInit {
               private _articleService : ArticlesService,
               private fb: FormBuilder,
               private _categoryService : CategoryService) {
-
   }
 
   ngOnInit(): void {
