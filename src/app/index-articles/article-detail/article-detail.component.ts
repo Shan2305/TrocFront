@@ -32,8 +32,6 @@ export class ArticleDetailComponent implements OnInit {
     });
   }
 
-
-
   private fetchArticleById(id: number) {
     this._articleService
       .fetchById(id)

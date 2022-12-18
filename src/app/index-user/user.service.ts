@@ -27,7 +27,7 @@ export class UserService {
   }
 
   //https://localhost:7018/api/v1/Users/1
-  fetchById(id: number): Observable<DtoInputUser> {
+  fetchById(id: number | undefined): Observable<DtoInputUser> {
     return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT+'/'+id);
   }
 

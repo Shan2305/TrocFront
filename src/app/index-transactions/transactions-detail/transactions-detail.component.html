@@ -1,0 +1,23 @@
+<body>
+<h1>Detail de la transaction</h1>
+<div class="container" *ngIf="ArticleWanted && ArticleOffer && transaction && requestingUser &&userConnected ">
+
+  <div class="offre">
+    <div class="articleOffer">
+      L'utilisateur {{requestingUser.pseudo}} veut échanger son article suivant :
+      <div class="caseImage">
+        {{ArticleOffer.name}}
+        <img src="{{ArticleOffer.urlImage}}"/>
+      </div>
+    </div>
+
+    <div class="ArticleWanted">
+      Avec votre :
+      <div class="caseImage">
+        {{ArticleWanted.name}}
+        <img src="{{ArticleWanted.urlImage}}"/>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

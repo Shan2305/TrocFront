@@ -11,19 +11,23 @@
     <img src="{{article.urlImage}}"/>
   </div>
 
-  <div class="profil" *ngIf="user">
-    Voici le profil du troceur
-    <br>
-    Pseudo : {{user.pseudo}}
-    <br>
-    localite : {{user.localite}}
-    <br>
-    Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
-    <br>
-    <a routerLink="../../detailUser/{{user.id}}">
-      Accéder au profil ?
-    </a>
+  <div class="profilANDTrade">
+    <div class="profil" *ngIf="user">
+      Voici le profil du troqueur
+      <br>
+      Pseudo : {{user.pseudo}}
+      <br>
+      localite : {{user.localite}}
+      <br>
+      Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
+      <br>
+      <a routerLink="../../detailUser/{{user.id}}">
+        Accéder au profil ?
+      </a>
+    </div>
+    <div class="trade">
 
+    </div>
   </div>
 </div>
 </body>

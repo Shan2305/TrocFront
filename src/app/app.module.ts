@@ -24,6 +24,9 @@ import {AuthentificationService} from "./index-authentification/authentification
 import { UserUpdateComponent } from './index-user/user-update/user-update.component';
 import { IndexBarreNavComponent } from './index-barre-nav/index-barre-nav.component';
 import { ArticleUpdateComponent } from './index-articles/article-update/article-update.component';
+import { IndexTransactionsComponent } from './index-transactions/index-transactions.component';
+import { TransactionsListComponent } from './index-transactions/transactions-list/transactions-list.component';
+import { TransactionsDetailComponent } from './index-transactions/transactions-detail/transactions-detail.component';
 
 
 
@@ -44,7 +47,10 @@ import { ArticleUpdateComponent } from './index-articles/article-update/article-
     UserProfileComponent,
     UserUpdateComponent,
     IndexBarreNavComponent,
-    ArticleUpdateComponent
+    ArticleUpdateComponent,
+    IndexTransactionsComponent,
+    TransactionsListComponent,
+    TransactionsDetailComponent
   ],
   imports: [
     BrowserModule,

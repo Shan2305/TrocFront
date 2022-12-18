@@ -1,0 +1,12 @@
+<body>
+<h1>Mes transactions</h1>
+<div *ngIf="transactions.length">
+  <ul>
+    <li *ngFor="let transaction of transactions, let i = index">
+      <a routerLink="../detailTransaction/{{transaction.id}}">
+      demande n°{{i+1}}
+      </a>
+    </li>
+  </ul>
+</div>
+</body>
