@@ -26,6 +26,8 @@ export class DetailUserComponent implements OnInit {
 
   notes: number = 10;
 
+  idProfil : number = 0;
+
   Commentary: DtoCreateCommentary | null = null;
 
   form: FormGroup = this.fb.group({
@@ -46,6 +48,7 @@ export class DetailUserComponent implements OnInit {
     this._route.paramMap.subscribe(args => {
       if (args.has("id")) {
         const id = Number(args.get("id"));
+        this.idProfil = id;
 
         this.fetchUserById(id);
         this.fetchAllArticleByUserId(id);

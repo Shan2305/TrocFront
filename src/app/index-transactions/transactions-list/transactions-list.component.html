@@ -1,12 +1,29 @@
 <body>
-<h1>Mes transactions</h1>
-<div *ngIf="transactions.length">
-  <ul>
-    <li *ngFor="let transaction of transactions, let i = index">
-      <a routerLink="../detailTransaction/{{transaction.id}}">
-      demande n°{{i+1}}
-      </a>
-    </li>
-  </ul>
+
+<div class="titre">
+  <h1>Mes transactions</h1>
+</div>
+<div class="container">
+  <div class="request" *ngIf="transactions.length">
+    <ul>
+      Mes demandes
+      <li *ngFor="let transaction of transactions, let i = index">
+        <a routerLink="../detailTransaction/{{transaction.id}}">
+          demande n°{{i + 1}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="offer" *ngIf="transactionsOffer.length">
+    <ul>
+      Mes offres
+      <li *ngFor="let transaction of transactionsOffer, let i = index">
+        <a routerLink="../detailTransaction/{{transaction.id}}">
+          demande n°{{i + 1}}
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 </body>

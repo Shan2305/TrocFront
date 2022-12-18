@@ -23,4 +23,10 @@ export class IndexBarreNavComponent implements OnInit {
 
   }
 
+  logOut() {
+      this._userService
+        .disconnect()
+        .subscribe();
+
+  }
 }

@@ -46,7 +46,7 @@
           </li>
         </ul>
       </div>
-      <div *ngIf="userConnected" class="addCommentary">
+      <div *ngIf="userConnected && userConnected.id !=idProfil" class="addCommentary">
         <h2>Ajouter un commentaire</h2>
         <div>
           <form [formGroup]="form" (ngSubmit)="sendCommentary()">
@@ -96,7 +96,7 @@
               </tr>
               <tr>
                 <td></td>
-                <td><input type="submit" value = "ajouter commentaire" [disabled]="(form.invalid)"></td>
+                <td><input type="submit" value="ajouter commentaire" [disabled]="(form.invalid)"></td>
               </tr>
             </table>
           </form>

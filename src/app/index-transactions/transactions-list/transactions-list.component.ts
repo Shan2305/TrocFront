@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DtoInputTransactions} from "../dto/DtoInputTransactions";
 import {TransactionsService} from "../transactions.service";
-import {DtoInputUser} from "../../index-user/dto/dto-input-user";
-import {UserService} from "../../index-user/user.service";
-import {DtoInputArticle} from "../../index-articles/dto/dtoInputArticle";
+
 
 @Component({
   selector: 'app-transactions-list',
@@ -13,6 +11,7 @@ import {DtoInputArticle} from "../../index-articles/dto/dtoInputArticle";
 export class TransactionsListComponent implements OnInit {
 
   transactions: DtoInputTransactions[] = [];
+  transactionsOffer: DtoInputTransactions[] = [];
 
 
 
@@ -29,6 +28,10 @@ export class TransactionsListComponent implements OnInit {
       .subscribe(transaction => {
         this.transactions = transaction
       });
+
+    this._transactionService
+      .fetchByIdUserOffer()
+      .subscribe(transaction=>this.transactionsOffer = transaction)
   }
 
 }

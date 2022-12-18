@@ -3,7 +3,7 @@ export interface DtoInputArticle {
   name:string;
   urlImage:string;
   publicationDate:string;
-  nomCat:string;
+  categoryName:string;
   description:string;
   idUser:number;
 

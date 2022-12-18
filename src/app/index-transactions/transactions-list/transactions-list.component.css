@@ -3,7 +3,21 @@ body {
   margin-right: 8%;
   background-color: #828a00;
   position: absolute;
-
+  display: flex;
+  flex-direction: column;
   height: 80%;
   width: 80%;
+}
+
+.container
+{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+.titre{
+
+  text-align: center;
 }

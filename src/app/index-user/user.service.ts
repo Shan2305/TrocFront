@@ -43,4 +43,7 @@ export class UserService {
   }
 
 
+  disconnect() {
+    return this._httpClient.post(UserService.ENTRY_POINT+"/disconnect","");
+  }
 }
