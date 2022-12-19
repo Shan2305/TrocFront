@@ -4,26 +4,59 @@
   <h1>Mes transactions</h1>
 </div>
 <div class="container">
-  <div class="request" *ngIf="transactions.length">
-    <ul>
-      Mes demandes
-      <li *ngFor="let transaction of transactions, let i = index">
-        <a routerLink="../detailTransaction/{{transaction.id}}">
-          demande n°{{i + 1}}
-        </a>
-      </li>
-    </ul>
+
+  <div class="requestANDoffer">
+    <div class="titre">EN ATTENTE</div>
+    <div class="row">
+      <div class="request" *ngIf="transactions.length">
+        <ul>
+          Mes demandes
+          <li *ngFor="let transaction of transactions, let i = index">
+            <a routerLink="../detailTransaction/{{transaction.id}}">
+              demande n°{{i + 1}}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="offer" *ngIf="transactionsOffer.length">
+        <ul>
+          Mes offres
+          <li *ngFor="let transaction of transactionsOffer, let i = index">
+            <a routerLink="../detailTransaction/{{transaction.id}}">
+              demande n°{{i + 1}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="offer" *ngIf="transactionsOffer.length">
-    <ul>
-      Mes offres
-      <li *ngFor="let transaction of transactionsOffer, let i = index">
-        <a routerLink="../detailTransaction/{{transaction.id}}">
-          demande n°{{i + 1}}
-        </a>
-      </li>
-    </ul>
+  <div class="HISTORIC">
+    <div class="titre">ACCEPTEE OU REFUSEE</div>
+    <div class="row">
+      <div class="request" *ngIf="HistoricTransactionsReceive.length">
+        <ul>
+          Mes demandes
+          <li *ngFor="let transaction of HistoricTransactionsReceive, let i = index">
+            <a routerLink="../detailTransactionHistoric/{{transaction.id}}">
+              demande n°{{i + 1}}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="offer" *ngIf="HistoricTransactionsOffer.length">
+        <ul>
+          Mes offres
+          <li *ngFor="let transaction of HistoricTransactionsOffer, let i = index">
+            <a routerLink="../detailTransactionHistoric/{{transaction.id}}">
+              demande n°{{i + 1}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 </body>

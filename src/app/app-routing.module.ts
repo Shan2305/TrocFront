@@ -15,6 +15,9 @@ import {
 import {ArticleUpdateComponent} from "./index-articles/article-update/article-update.component";
 import {TransactionsListComponent} from "./index-transactions/transactions-list/transactions-list.component";
 import {TransactionsDetailComponent} from "./index-transactions/transactions-detail/transactions-detail.component";
+import {
+  DetailHistoricTransactionsComponent
+} from "./index-historic-transactions/detail-historic-transactions/detail-historic-transactions.component";
 
 
 const routes: Routes = [
@@ -53,8 +56,9 @@ const routes: Routes = [
   {
     path: 'detailTransaction/:id', component: TransactionsDetailComponent
   },
-
-
+  {
+    path: 'detailTransactionHistoric/:id', component: DetailHistoricTransactionsComponent
+  },
 ]
 
 

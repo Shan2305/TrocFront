@@ -1,0 +1,27 @@
+<body>
+<h1 *ngIf="transaction">cette transaction a été {{transaction.echange}}</h1>
+
+<br>
+<div class="container" *ngIf="ArticleWanted && ArticleOffer && transaction && requestingUser &&userConnected && UserArticleWanted">
+  <div class="offre">
+    <div class="articleOffer">
+      <span *ngIf="requestingUser.id != userConnected.id">L'utilisateur {{requestingUser.pseudo}} veut échanger son article suivant :</span>
+      <span *ngIf="requestingUser.id == userConnected.id">Vous voulez echanger votre</span>
+      <div class="caseImage">
+        {{ArticleOffer.name}}
+        <img src="{{ArticleOffer.urlImage}}"/>
+      </div>
+    </div>
+
+    <div class="ArticleWanted">
+      <span *ngIf="requestingUser.id != userConnected.id">Avec votre :</span>
+      <span *ngIf="requestingUser.id == userConnected.id">Avec cet article appartenant à {{UserArticleWanted.pseudo}}</span>
+      <div class="caseImage">
+        {{ArticleWanted.name}}
+        <img src="{{ArticleWanted.urlImage}}"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>

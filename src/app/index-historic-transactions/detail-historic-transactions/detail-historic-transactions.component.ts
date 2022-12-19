@@ -1,31 +1,29 @@
 import {Component, OnInit} from '@angular/core';
+import {DtoInputTransactions} from "../../index-transactions/dto/DtoInputTransactions";
 import {DtoInputUser} from "../../index-user/dto/dto-input-user";
 import {DtoInputArticle} from "../../index-articles/dto/dtoInputArticle";
-import {TransactionsService} from "../transactions.service";
+import {DtoInputTransactionHistoric} from "../dto/dtoInputTransactionHistoric";
+import {TransactionsService} from "../../index-transactions/transactions.service";
 import {UserService} from "../../index-user/user.service";
-import {DtoInputTransactions} from "../dto/DtoInputTransactions";
 import {ActivatedRoute} from "@angular/router";
-import {
-  toR3NgModuleMeta
-} from "@angular/compiler-cli/linker/src/file_linker/partial_linkers/partial_ng_module_linker_1";
 import {ArticlesService} from "../../index-articles/articles.service";
-import {HistoricTransactionsService} from "../../index-historic-transactions/historic-transactions.service";
+import {HistoricTransactionsService} from "../historic-transactions.service";
 
 @Component({
-  selector: 'app-transactions-detail',
-  templateUrl: './transactions-detail.component.html',
-  styleUrls: ['./transactions-detail.component.css']
+  selector: 'app-detail-historic-transactions',
+  templateUrl: './detail-historic-transactions.component.html',
+  styleUrls: ['./detail-historic-transactions.component.css']
 })
-export class TransactionsDetailComponent implements OnInit {
+export class DetailHistoricTransactionsComponent implements OnInit {
 
   //la transaction
-  transaction: DtoInputTransactions | null = null;
+  transaction: DtoInputTransactionHistoric | null = null;
 
   //l'utilisateur qui fait une demande
   requestingUser: DtoInputUser | null = null;
 
   //l'utilisateur possedant de l'article desiré
-  UserArticleWanted : DtoInputUser | null = null;
+  UserArticleWanted: DtoInputUser | null = null;
 
   //l'offre de l'utilisateur qui fait la demande
   ArticleOffer: DtoInputArticle | null = null;
@@ -39,7 +37,7 @@ export class TransactionsDetailComponent implements OnInit {
               private _userService: UserService,
               private _route: ActivatedRoute,
               private _articleService: ArticlesService,
-              private _transactionHistoricService : HistoricTransactionsService) {
+              private _transactionHistoricService: HistoricTransactionsService) {
   }
 
   ngOnInit(): void {
@@ -52,8 +50,18 @@ export class TransactionsDetailComponent implements OnInit {
     this.fetchUserConnected();
   }
 
+  private fetchUserByIdWanted(id: number) {
+    this._userService
+      .fetchById(id)
+      .subscribe(user => {
+        this.UserArticleWanted = user,
+          console.log(this.UserArticleWanted),
+          console.log(this.transaction?.id_User2)
+      });
+  }
+
   private fetchTransactionById(id: number) {
-    this._transactionService
+    this._transactionHistoricService
       .fetchById(id)
       .subscribe(transaction => {
         this.transaction = transaction,
@@ -74,14 +82,11 @@ export class TransactionsDetailComponent implements OnInit {
           console.log(this.transaction?.id_User1)
       });
   }
-  private fetchUserByIdWanted(id: number) {
+
+  private fetchUserConnected() {
     this._userService
-      .fetchById(id)
-      .subscribe(user => {
-        this.UserArticleWanted = user,
-          console.log(this.UserArticleWanted),
-          console.log(this.transaction?.id_User2)
-      });
+      .fetchByIdToken()
+      .subscribe(user => this.userConnected = user);
   }
 
   private fetchOfferArticle(id: number) {
@@ -93,8 +98,7 @@ export class TransactionsDetailComponent implements OnInit {
       })
   }
 
-  private fetchArticleWanted(id : number)
-  {
+  private fetchArticleWanted(id: number) {
     this._articleService
       .fetchById(id)
       .subscribe(article => {
@@ -103,17 +107,4 @@ export class TransactionsDetailComponent implements OnInit {
       })
   }
 
-  private fetchUserConnected()
-  {
-    this._userService
-      .fetchByIdToken()
-      .subscribe(user=>this.userConnected=user);
-  }
-
-  accepter(accepter: boolean) {
-    this._transactionHistoricService
-      .AcceptTransaction(accepter,this.transaction?.id)
-      .subscribe();
-
-  }
 }

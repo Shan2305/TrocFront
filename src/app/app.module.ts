@@ -27,6 +27,8 @@ import { ArticleUpdateComponent } from './index-articles/article-update/article-
 import { IndexTransactionsComponent } from './index-transactions/index-transactions.component';
 import { TransactionsListComponent } from './index-transactions/transactions-list/transactions-list.component';
 import { TransactionsDetailComponent } from './index-transactions/transactions-detail/transactions-detail.component';
+import { IndexHistoricTransactionsComponent } from './index-historic-transactions/index-historic-transactions.component';
+import { DetailHistoricTransactionsComponent } from './index-historic-transactions/detail-historic-transactions/detail-historic-transactions.component';
 
 
 
@@ -50,7 +52,9 @@ import { TransactionsDetailComponent } from './index-transactions/transactions-d
     ArticleUpdateComponent,
     IndexTransactionsComponent,
     TransactionsListComponent,
-    TransactionsDetailComponent
+    TransactionsDetailComponent,
+    IndexHistoricTransactionsComponent,
+    DetailHistoricTransactionsComponent
   ],
   imports: [
     BrowserModule,

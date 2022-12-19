@@ -14,7 +14,9 @@ export const environment = {
 
   ApiUrlAuthentification:"https://localhost:7018/api/Authentication/login",
 
-  ApiUrlTransactions:"https://localhost:7018/api/v1/Transaction"
+  ApiUrlTransactions:"https://localhost:7018/api/v1/Transaction",
+
+  ApiUrlHistoricTransactions : "https://localhost:7018/api/v1/HistoricTransaction"
 
 
 };

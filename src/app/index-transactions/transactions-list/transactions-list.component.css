@@ -15,9 +15,25 @@ body {
   margin-right: auto;
   display: flex;
   width: 50%;
-  justify-content: center;
+  justify-content: space-between;
 }
 .titre{
 
   text-align: center;
+}
+
+.requestANDoffer
+{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+}
+
+.HISTORIC
+{
+  border: 1px solid;
+}
+.row
+{
+  display: flex;
 }
