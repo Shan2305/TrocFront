@@ -99,7 +99,7 @@ export class DetailUserComponent implements OnInit {
         note: this.form.value.note,
         nom: this.userConnected?.pseudo,
         message: this.form.value.message,
-        idUser: this.userConnected?.id
+        idUser: this.user?.id
       }
       this._commentaryService
         .create(this.Commentary)
