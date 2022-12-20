@@ -8,6 +8,7 @@ import {UserService} from "../../index-user/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {ArticlesService} from "../../index-articles/articles.service";
 import {HistoricTransactionsService} from "../historic-transactions.service";
+import {HistoricArticleService} from "../../index-historic-articles/historic-article.service";
 
 @Component({
   selector: 'app-detail-historic-transactions',
@@ -37,7 +38,8 @@ export class DetailHistoricTransactionsComponent implements OnInit {
               private _userService: UserService,
               private _route: ActivatedRoute,
               private _articleService: ArticlesService,
-              private _transactionHistoricService: HistoricTransactionsService) {
+              private _transactionHistoricService: HistoricTransactionsService,
+              private _historicArticleService: HistoricArticleService) {
   }
 
   ngOnInit(): void {
@@ -90,7 +92,7 @@ export class DetailHistoricTransactionsComponent implements OnInit {
   }
 
   private fetchOfferArticle(id: number) {
-    this._articleService
+    this._historicArticleService
       .fetchById(id)
       .subscribe(article => {
         this.ArticleOffer = article,
@@ -99,7 +101,7 @@ export class DetailHistoricTransactionsComponent implements OnInit {
   }
 
   private fetchArticleWanted(id: number) {
-    this._articleService
+    this._historicArticleService
       .fetchById(id)
       .subscribe(article => {
         this.ArticleWanted = article,

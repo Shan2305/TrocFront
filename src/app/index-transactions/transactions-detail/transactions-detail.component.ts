@@ -10,6 +10,7 @@ import {
 } from "@angular/compiler-cli/linker/src/file_linker/partial_linkers/partial_ng_module_linker_1";
 import {ArticlesService} from "../../index-articles/articles.service";
 import {HistoricTransactionsService} from "../../index-historic-transactions/historic-transactions.service";
+import {HistoricArticleService} from "../../index-historic-articles/historic-article.service";
 
 @Component({
   selector: 'app-transactions-detail',
@@ -25,7 +26,7 @@ export class TransactionsDetailComponent implements OnInit {
   requestingUser: DtoInputUser | null = null;
 
   //l'utilisateur possedant de l'article desiré
-  UserArticleWanted : DtoInputUser | null = null;
+  UserArticleWanted: DtoInputUser | null = null;
 
   //l'offre de l'utilisateur qui fait la demande
   ArticleOffer: DtoInputArticle | null = null;
@@ -39,7 +40,8 @@ export class TransactionsDetailComponent implements OnInit {
               private _userService: UserService,
               private _route: ActivatedRoute,
               private _articleService: ArticlesService,
-              private _transactionHistoricService : HistoricTransactionsService) {
+              private _transactionHistoricService: HistoricTransactionsService,
+              private _historicArticleService: HistoricArticleService) {
   }
 
   ngOnInit(): void {
@@ -74,6 +76,7 @@ export class TransactionsDetailComponent implements OnInit {
           console.log(this.transaction?.id_User1)
       });
   }
+
   private fetchUserByIdWanted(id: number) {
     this._userService
       .fetchById(id)
@@ -93,8 +96,7 @@ export class TransactionsDetailComponent implements OnInit {
       })
   }
 
-  private fetchArticleWanted(id : number)
-  {
+  private fetchArticleWanted(id: number) {
     this._articleService
       .fetchById(id)
       .subscribe(article => {
@@ -103,17 +105,28 @@ export class TransactionsDetailComponent implements OnInit {
       })
   }
 
-  private fetchUserConnected()
-  {
+  private fetchUserConnected() {
     this._userService
       .fetchByIdToken()
-      .subscribe(user=>this.userConnected=user);
+      .subscribe(user => this.userConnected = user);
   }
 
   accepter(accepter: boolean) {
-    this._transactionHistoricService
-      .AcceptTransaction(accepter,this.transaction?.id)
-      .subscribe();
 
+    if (confirm()) {
+      this._transactionHistoricService
+        .AcceptTransaction(accepter, this.transaction?.id)
+        .subscribe();
+
+      if (accepter) {
+        this._historicArticleService
+          .ArchivedArticle(this.ArticleOffer?.id)
+          .subscribe();
+
+        this._historicArticleService
+          .ArchivedArticle(this.ArticleWanted?.id)
+          .subscribe();
+      }
+    }
   }
 }

@@ -32,6 +32,7 @@ import { DetailHistoricTransactionsComponent } from './index-historic-transactio
 import { AuthentificationCreateComponent } from './index-authentification/authentification-create/authentification-create.component';
 import { IndexAdminComponent } from './index-admin/index-admin.component';
 import { ManageUserComponent } from './index-admin/manage-user/manage-user.component';
+import { IndexHistoricArticlesComponent } from './index-historic-articles/index-historic-articles.component';
 
 
 
@@ -60,7 +61,8 @@ import { ManageUserComponent } from './index-admin/manage-user/manage-user.compo
     DetailHistoricTransactionsComponent,
     AuthentificationCreateComponent,
     IndexAdminComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    IndexHistoricArticlesComponent
   ],
   imports: [
     BrowserModule,
