@@ -32,7 +32,9 @@ export class UserUpdateComponent implements OnInit {
   fetchByIdToken() {
     return this._userService
       .fetchByIdToken()
-      .subscribe(user => this.user = user);
+      .subscribe(user => {
+        this.user = user
+      });
 
   }
 
@@ -43,6 +45,7 @@ export class UserUpdateComponent implements OnInit {
       email: this.form.value.email,
       localite: this.form.value.localite,
       pseudo: this.form.value.name,
+      admin: this.user?.admin
     }
     return this._userService.update(this.form.value.email, this.form.value.name, this.form.value.localite, this.user?.id).subscribe();
 

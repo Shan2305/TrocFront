@@ -1,6 +1,6 @@
 <body>
 <h1>Detail de la transaction</h1>
-<div class="accepter">
+<div *ngIf="userConnected && requestingUser &&userConnected.id != requestingUser.id" class="accepter">
   <input type="submit" value="accepter" (click)="accepter(true)">
   <input type="submit" value="Refuser" (click)="accepter(false)">
 </div>

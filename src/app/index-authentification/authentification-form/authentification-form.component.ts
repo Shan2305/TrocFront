@@ -4,6 +4,7 @@ import {AuthentificationService} from "../authentification.service";
 import {DtoCreateArticle} from "../../index-articles/dto/dto-create-article";
 import {DtoLogin} from "../dto/dto-login";
 import {DtoInputUser} from "../../index-user/dto/dto-input-user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-authentification-form',
@@ -18,18 +19,19 @@ export class AuthentificationFormComponent implements OnInit {
     mdp: this.fb.control("", Validators.required)
   });
 
-  constructor(private fb: FormBuilder, private _authentificationService: AuthentificationService) {
+  constructor(private fb: FormBuilder,
+              private _authentificationService: AuthentificationService,
+              private  router:Router) {
   }
 
   ngOnInit(): void {
   }
-
-  //    this._articleService.create(dto).subscribe(article => this.articles.push(article));
   login() {
     this._authentificationService
       .login(this.form.value.email, this.form.value.mdp)
       .subscribe();
 
+    location.reload();
   }
 
 

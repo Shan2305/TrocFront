@@ -29,7 +29,8 @@ export class UserCreateComponent implements OnInit {
       email: this.form.value.email,
       pseudo: this.form.value.pseudo,
       localite: this.form.value.localite,
-      mdp: this.form.value.mdp
+      mdp: this.form.value.mdp,
+      admin : false
     })
   }
 }

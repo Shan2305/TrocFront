@@ -16,11 +16,11 @@ import {DtoInputCategory} from "../../index-category/dto/dto-input-category";
 export class UserProfileComponent implements OnInit {
   user: DtoInputUser | null = null;
   articles: DtoInputArticle[] = [];
-  categories: DtoInputCategory[]=[];
+  categories: DtoInputCategory[] = [];
 
-  articleCreated  :DtoCreateArticle | null = null;
+  articleCreated: DtoCreateArticle | null = null;
 
-  form : FormGroup = this.fb.group({
+  form: FormGroup = this.fb.group({
     name: this.fb.control("", Validators.required),
     urlImage: this.fb.control("", Validators.required),
     nomCat: this.fb.control("", Validators.required),
@@ -29,9 +29,9 @@ export class UserProfileComponent implements OnInit {
   });
 
   constructor(private _userService: UserService,
-              private _articleService : ArticlesService,
+              private _articleService: ArticlesService,
               private fb: FormBuilder,
-              private _categoryService : CategoryService) {
+              private _categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
@@ -41,19 +41,27 @@ export class UserProfileComponent implements OnInit {
   }
 
   sendArticle() {
-  this.articleCreated =
+    if (confirm("Voulez-vous vraiment ajouter cet article à votre profil ?"))
     {
-      name : this.form.value.name,
-      urlImage : this.form.value.urlImage,
-      nomCat : this.form.value.combobox,
-      description : this.form.value.description
+      this.articleCreated =
+        {
+          name: this.form.value.name,
+          urlImage: this.form.value.urlImage,
+          nomCat: this.form.value.combobox,
+          description: this.form.value.description
+        }
+      this.createArticle(this.articleCreated);
     }
-    this.createArticle(this.articleCreated);
+
   }
+
   fetchByIdToken() {
     return this._userService
       .fetchByIdToken()
-      .subscribe(user =>this.user = user);
+      .subscribe(user => {
+        this.user = user,
+          console.log(this.user)
+      });
 
   }
 
@@ -68,6 +76,7 @@ export class UserProfileComponent implements OnInit {
   createArticle(dto: DtoCreateArticle) {
     this._articleService.create(dto).subscribe(article => this.articles.push(article));
   }
+
   fetchAllCategorie() {
     this._categoryService.fetchAll()
       .subscribe(category => {

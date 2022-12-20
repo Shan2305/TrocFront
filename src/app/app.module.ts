@@ -29,6 +29,9 @@ import { TransactionsListComponent } from './index-transactions/transactions-lis
 import { TransactionsDetailComponent } from './index-transactions/transactions-detail/transactions-detail.component';
 import { IndexHistoricTransactionsComponent } from './index-historic-transactions/index-historic-transactions.component';
 import { DetailHistoricTransactionsComponent } from './index-historic-transactions/detail-historic-transactions/detail-historic-transactions.component';
+import { AuthentificationCreateComponent } from './index-authentification/authentification-create/authentification-create.component';
+import { IndexAdminComponent } from './index-admin/index-admin.component';
+import { ManageUserComponent } from './index-admin/manage-user/manage-user.component';
 
 
 
@@ -54,7 +57,10 @@ import { DetailHistoricTransactionsComponent } from './index-historic-transactio
     TransactionsListComponent,
     TransactionsDetailComponent,
     IndexHistoricTransactionsComponent,
-    DetailHistoricTransactionsComponent
+    DetailHistoricTransactionsComponent,
+    AuthentificationCreateComponent,
+    IndexAdminComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,

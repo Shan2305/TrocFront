@@ -18,6 +18,10 @@ import {TransactionsDetailComponent} from "./index-transactions/transactions-det
 import {
   DetailHistoricTransactionsComponent
 } from "./index-historic-transactions/detail-historic-transactions/detail-historic-transactions.component";
+import {
+  AuthentificationCreateComponent
+} from "./index-authentification/authentification-create/authentification-create.component";
+import {ManageUserComponent} from "./index-admin/manage-user/manage-user.component";
 
 
 const routes: Routes = [
@@ -51,6 +55,9 @@ const routes: Routes = [
     path: 'Connexion', component: AuthentificationFormComponent
   },
   {
+    path: 'CreateAccount', component: AuthentificationCreateComponent
+  },
+  {
     path: 'transactionRequest', component: TransactionsListComponent
   },
   {
@@ -58,6 +65,9 @@ const routes: Routes = [
   },
   {
     path: 'detailTransactionHistoric/:id', component: DetailHistoricTransactionsComponent
+  },
+  {
+    path: 'manageUser', component: ManageUserComponent
   },
 ]
 

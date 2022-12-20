@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {DtoInputUser} from "./dto/dto-input-user";
 import {Observable} from "rxjs";
@@ -22,28 +22,37 @@ export class UserService {
     return this._httpClient.get<DtoInputUser[]>(UserService.ENTRY_POINT);
   }
 
-  create(dto:DtoCreateUser):Observable<DtoInputUser>{
-    return this._httpClient.post<DtoInputUser>( UserService.ENTRY_POINT+"?email="+dto.email+"&pseudo="+dto.pseudo+"&localite="+dto.localite+"&mdp="+dto.mdp,dto);
+  create(dto: DtoCreateUser): Observable<DtoInputUser> {
+    return this._httpClient.post<DtoInputUser>(UserService.ENTRY_POINT + "?email=" + dto.email + "&pseudo=" + dto.pseudo
+      + "&localite=" + dto.localite + "&mdp=" + dto.mdp + "&admin=" + dto.admin, dto);
   }
 
   //https://localhost:7018/api/v1/Users/1
   fetchById(id: number | undefined): Observable<DtoInputUser> {
-    return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT+'/'+id);
+    return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT + '/' + id);
   }
 
   //https://localhost:7018/api/v1/Users/fetchById
   fetchByIdToken(): Observable<DtoInputUser> {
-    return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT+'/fetchById');
+    return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT + '/fetchById');
   }
 
   //https://localhost:7018/api/v1/Users?email=flo&pseudo=flo&localite=horrues&id=1
-  update(email: string, pseudo: string, localite: string, id: any):Observable<any>
-  {
-    return this._httpClient.put(UserService.ENTRY_POINT+ "?email="+email+"&pseudo="+pseudo+"&localite="+localite+"&id="+id,"");
+  update(email: string, pseudo: string, localite: string, id: any): Observable<any> {
+    return this._httpClient.put(UserService.ENTRY_POINT + "?email=" + email + "&pseudo=" + pseudo + "&localite=" + localite + "&id=" + id, "");
   }
 
-
   disconnect() {
-    return this._httpClient.post(UserService.ENTRY_POINT+"/disconnect","");
+    return this._httpClient.post(UserService.ENTRY_POINT + "/disconnect", "");
+  }
+
+  //https://localhost:7018/api/v1/Users/setAdmin?admin=false&id=2
+  setAdmin(admin:boolean, id:number | undefined)
+  {
+    return this._httpClient.put(UserService.ENTRY_POINT+"/setAdmin?admin="+admin+"&id="+id,"");
+  }
+  deleteUser(id : number | undefined)
+  {
+    return this._httpClient.delete(UserService.ENTRY_POINT+"/"+id);
   }
 }

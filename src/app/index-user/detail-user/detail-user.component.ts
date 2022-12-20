@@ -26,7 +26,7 @@ export class DetailUserComponent implements OnInit {
 
   notes: number = 10;
 
-  idProfil : number = 0;
+  idProfil: number = 0;
 
   Commentary: DtoCreateCommentary | null = null;
 
@@ -93,18 +93,19 @@ export class DetailUserComponent implements OnInit {
 
 
   sendCommentary() {
-    this.Commentary = {
-      note: this.form.value.note,
-      nom: this.userConnected?.pseudo,
-      message: this.form.value.message,
-      idUser: this.userConnected?.id
+
+    if (confirm("Etes-vous sur de vouloir ajouter ce commentaire ?")) {
+      this.Commentary = {
+        note: this.form.value.note,
+        nom: this.userConnected?.pseudo,
+        message: this.form.value.message,
+        idUser: this.userConnected?.id
+      }
+      this._commentaryService
+        .create(this.Commentary)
+        .subscribe(commentary => {
+          this.commentaries.push(commentary)
+        });
     }
-
-    this._commentaryService
-      .create(this.Commentary)
-      .subscribe(commentary => {
-        this.commentaries.push(commentary)
-      });
-
   }
 }

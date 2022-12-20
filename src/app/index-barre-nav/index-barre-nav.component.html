@@ -8,6 +8,7 @@
   <li class="profil" *ngIf="user"><a routerLink="profile/">mon profil</a></li>
   <li class="profil" *ngIf="user==null"><a routerLink="../Connexion">Connexion</a></li>
   <li class="profil" *ngIf="user"> <a (click)="logOut()" href="#">Deconnexion</a> </li>
+  <li class="profil" *ngIf="user && user.admin"> <a routerLink="../manageUser">Menu admin</a> </li>
 
 </ul>
 </body>

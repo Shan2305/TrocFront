@@ -25,12 +25,12 @@
       <input type="password" id="email"formControlName="mdp" name="email" placeholder="mot de passe" required><i class="validation"><span></span><span></span></i>
     </p>
     <p>
-      <input type="submit" id="login" value="Login" [disabled]="form.invalid">
+    <input type="submit" id="Créer un compte" value="Login" [disabled]="form.invalid">
     </p>
   </form>
   <div id="create-account-wrap">
-    <p>Not a member? <a href="#">Create Account</a><p>
-  </div><!--create-account-wrap-->
-</div><!--login-form-wrap-->
+    <p>Not a member? <a routerLink="../CreateAccount">Create Account</a><p>
+  </div>
+</div>
 </body>
 

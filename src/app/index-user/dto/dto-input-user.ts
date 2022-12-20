@@ -3,5 +3,6 @@ export interface DtoInputUser {
   email:string;
   pseudo:string;
   localite:string;
+  admin : boolean | undefined;
 
 }

@@ -21,20 +21,20 @@ export class ArticleDetailComponent implements OnInit {
   articles: DtoInputArticle[] | null = null;
   user: DtoInputUser | null = null;
 
-  transaction :DtoCreateTransaction | null = null;
+  transaction: DtoCreateTransaction | null = null;
   userConnected: DtoInputUser | null = null;
 
   idUser: number = 0;
   form: FormGroup = this.fb.group({
-    articleToTrade : this.fb.control("", Validators.required)
+    articleToTrade: this.fb.control("", Validators.required)
   });
 
 
   constructor(private _articleService: ArticlesService,
               private _route: ActivatedRoute,
               private _userService: UserService,
-              private fb:FormBuilder,
-              private _serviceTransaction : TransactionsService) {
+              private fb: FormBuilder,
+              private _serviceTransaction: TransactionsService) {
   }
 
   ngOnInit(): void {
@@ -68,32 +68,33 @@ export class ArticleDetailComponent implements OnInit {
       });
   }
 
-  private fetchUserConnected()
-  {
+  private fetchUserConnected() {
     this._userService
       .fetchByIdToken()
-      .subscribe(user =>this.userConnected = user);
+      .subscribe(user => this.userConnected = user);
   }
 
-  private fetchAllArticleByUserConnected()
-  {
-      this._articleService
-        .fetchAllArticleByUserIdConnected()
-        .subscribe(article =>this.articles = article);
+  private fetchAllArticleByUserConnected() {
+    this._articleService
+      .fetchAllArticleByUserIdConnected()
+      .subscribe(article => this.articles = article);
   }
 
   trade() {
-    this.transaction = {
-      id_User1 : this.userConnected?.id,
-      id_User2 : this.article?.idUser,
-      article1 : this.form.value.articleToTrade,
-      article2: this.article?.id
+
+    if (confirm("Voulez-vous vraiment proposer cet échange ?")) {
+      this.transaction = {
+        id_User1: this.userConnected?.id,
+        id_User2: this.article?.idUser,
+        article1: this.form.value.articleToTrade,
+        article2: this.article?.id
+      }
+
+      this._serviceTransaction
+        .create(this.transaction)
+        .subscribe();
+
     }
-
-    this._serviceTransaction
-      .create(this.transaction)
-      .subscribe();
-
   }
 
 

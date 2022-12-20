@@ -1,0 +1,26 @@
+<body>
+<div id="login-form-wrap">
+  <h2>Login</h2>
+  <form id="login-form" [formGroup]="form" (ngSubmit)="login()">
+    <p>
+      <input type="email" id="username" formControlName="email" name="username" placeholder="email" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="text" id="pseudo" formControlName="pseudo" name="pseudo" placeholder="pseudo" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="text" id="localite" formControlName="localite" name="localite" placeholder="Localite" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="password" id="password" formControlName="mdp" name="password" placeholder="mot de passe" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="submit" id="login" value="Login" [disabled]="form.invalid">
+    </p>
+  </form>
+</div>
+</body>
