@@ -61,6 +61,15 @@ export class ArticleUpdateComponent implements OnInit {
 
 
   Update() {
-    return this._articleService.update(this.form.value.name, this.form.value.description, this.form.value.url, this.article?.id).subscribe();
+
+    if (confirm("Voulez-vous vraiment modifier cet article ?"))
+    {
+      return this._articleService.update(this.form.value.name, this.form.value.description, this.form.value.url, this.article?.id).subscribe();
+      location.replace("../profile");
+
+    }
+    return null;
+
+
   }
 }

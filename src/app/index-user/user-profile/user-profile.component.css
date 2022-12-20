@@ -25,7 +25,6 @@
   margin-right: 8%;
   background-color: #828a00;
   position: absolute;
-
   height: 80%;
   width: 80%;
 
@@ -42,6 +41,8 @@
 .create
 {
   height: 20%;
+  overflow: auto;
+  display: flex;
 }
 
 .formCreate

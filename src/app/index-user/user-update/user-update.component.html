@@ -5,15 +5,15 @@
   <ul class="ulProfil">
     <tr>
       <td>PSEUDO : </td>
-      <td><input formControlName="name" value="{{user.pseudo}}"></td>
+      <td><input formControlName="name" [(ngModel)]="user.pseudo"></td>
     </tr>
     <tr>
       <td>EMAIL : </td>
-      <td><input formControlName="email" value ="{{user.email}}"></td>
+      <td><input formControlName="email" [(ngModel)]="user.email"></td>
     </tr>
     <tr>
       <td>LOCALITE :</td>
-      <td><input formControlName="localite" value ="{{user.localite}}"></td>
+      <td><input formControlName="localite" [(ngModel)]="user.localite"></td>
     </tr>
     <tr>
       <td></td>

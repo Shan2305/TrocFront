@@ -4,6 +4,7 @@ import {UserService} from "../user.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ArticlesService} from "../../index-articles/articles.service";
 import {DtoCreateArticle} from "../../index-articles/dto/dto-create-article";
+import {Router, Routes} from "@angular/router";
 
 @Component({
   selector: 'app-user-update',
@@ -22,7 +23,8 @@ export class UserUpdateComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private _userService: UserService,
-              private _articleService: ArticlesService) {
+              private _articleService: ArticlesService,
+              private _router: Router) {
   }
 
   ngOnInit(): void {
@@ -35,19 +37,19 @@ export class UserUpdateComponent implements OnInit {
       .subscribe(user => {
         this.user = user
       });
-
   }
 
   Update() {
-
-    this.userUpdate = {
-      id: this.user?.id,
-      email: this.form.value.email,
-      localite: this.form.value.localite,
-      pseudo: this.form.value.name,
-      admin: this.user?.admin
+    if (confirm("Etes-vous sur de vouloir modifier votre profil ?")) {
+      this.userUpdate = {
+        id: this.user?.id,
+        email: this.form.value.email,
+        localite: this.form.value.localite,
+        pseudo: this.form.value.name,
+        admin: this.user?.admin
+      }
+      return this._userService.update(this.form.value.email, this.form.value.name, this.form.value.localite, this.user?.id).subscribe();
     }
-    return this._userService.update(this.form.value.email, this.form.value.name, this.form.value.localite, this.user?.id).subscribe();
-
+    return null;
   }
 }

@@ -1,36 +1,37 @@
 <body>
 <div class="container">
-  <div class="modif" *ngIf="article">
-    <h2>Modifer l'article</h2>
+  <div>
     <form [formGroup]="form" (ngSubmit)="Update()">
-      <table>
-      <ul>
-        <tr>
-          <td>Nom : </td>
-          <td><input formControlName="name" value="{{article.name}}"></td>
-        </tr>
-        <tr>
-          <td>Description : </td>
-          <td><input formControlName="description" value="{{article.description}}"></td>
-        </tr>
-        <tr>
-          <td>URL de l'image : </td>
-          <td><input formControlName="url" value="{{article.urlImage}}"></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><input type="submit" value="Modifier"></td>
-        </tr>
-
-      </ul>
-      </table>
+      <div class="modif" *ngIf="article">
+        <h2>Modifer l'article</h2>
+        <table>
+          <ul>
+            <tr>
+              <td>Nom :</td>
+              <td><input type="text" formControlName="name" [(ngModel)]="article.name"></td>
+            </tr>
+            <tr>
+              <td>Description :</td>
+              <td><input formControlName="description" [(ngModel)]="article.description"></td>
+            </tr>
+            <tr>
+              <td>URL de l'image :</td>
+              <td><input formControlName="url" [(ngModel)]="article.urlImage"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="submit" value="Modifier" [disabled]="form.invalid"></td>
+            </tr>
+          </ul>
+        </table>
+      </div>
     </form>
-  </div>
 
-  <div class="profil" *ngIf="user">
-    <a routerLink="../../profile">
-      Retourner à mon profil
-    </a>
+    <div class="profil" *ngIf="user">
+      <a routerLink="../../profile">
+        Retourner à mon profil
+      </a>
+    </div>
   </div>
 </div>
 </body>
