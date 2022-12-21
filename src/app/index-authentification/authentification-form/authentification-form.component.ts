@@ -1,10 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthentificationService} from "../authentification.service";
-import {DtoCreateArticle} from "../../index-articles/dto/dto-create-article";
-import {DtoLogin} from "../dto/dto-login";
-import {DtoInputUser} from "../../index-user/dto/dto-input-user";
-import {Router} from "@angular/router";
+import {HttpErrorResponse} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-authentification-form',
@@ -14,10 +12,14 @@ import {Router} from "@angular/router";
 export class AuthentificationFormComponent implements OnInit {
 
   token: string | null = null;
+
+  error : boolean = false;
+
   form: FormGroup = this.fb.group({
     email: this.fb.control("", Validators.required),
     mdp: this.fb.control("", Validators.required)
   });
+
 
   constructor(private fb: FormBuilder,
               private _authentificationService: AuthentificationService,
@@ -30,9 +32,9 @@ export class AuthentificationFormComponent implements OnInit {
   login() {
     this._authentificationService
       .login(this.form.value.email, this.form.value.mdp)
-      .subscribe();
+      .subscribe()
+      this.error = true;
 
-    location.reload();
   }
 
 

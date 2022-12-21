@@ -17,6 +17,9 @@
 <body>
 <div id="login-form-wrap">
   <h2>Login</h2>
+  <div *ngIf="error">
+    Identifiant ou mot de passe incorrect
+  </div>
   <form id="login-form" [formGroup]="form" (ngSubmit)="login()">
     <p>
       <input type="email" id="username" formControlName="email" name="username" placeholder="email" required><i class="validation"><span></span><span></span></i>
