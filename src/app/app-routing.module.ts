@@ -22,6 +22,7 @@ import {
   AuthentificationCreateComponent
 } from "./index-authentification/authentification-create/authentification-create.component";
 import {ManageUserComponent} from "./index-admin/manage-user/manage-user.component";
+import {IndexBarreNavComponent} from "./index-barre-nav/index-barre-nav.component";
 
 
 const routes: Routes = [
@@ -69,6 +70,9 @@ const routes: Routes = [
   {
     path: 'manageUser', component: ManageUserComponent
   },
+  {
+    path : "barrenav", component:IndexBarreNavComponent
+  }
 ]
 
 

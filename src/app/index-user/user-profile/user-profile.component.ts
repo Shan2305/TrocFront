@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DtoInputUser} from "../dto/dto-input-user";
 import {UserService} from "../user.service";
 import {DtoCreateArticle} from "../../index-articles/dto/dto-create-article";
@@ -7,6 +7,7 @@ import {ArticlesService} from "../../index-articles/articles.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CategoryService} from "../../index-category/category.service";
 import {DtoInputCategory} from "../../index-category/dto/dto-input-category";
+import {AuthentificationService} from "../../index-authentification/authentification.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -14,6 +15,7 @@ import {DtoInputCategory} from "../../index-category/dto/dto-input-category";
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+
   user: DtoInputUser | null = null;
   articles: DtoInputArticle[] = [];
   categories: DtoInputCategory[] = [];
@@ -30,7 +32,8 @@ export class UserProfileComponent implements OnInit {
   constructor(private _userService: UserService,
               private _articleService: ArticlesService,
               private fb: FormBuilder,
-              private _categoryService: CategoryService) {
+              private _categoryService: CategoryService,
+              private _authentificationService : AuthentificationService) {
   }
 
   ngOnInit(): void {
@@ -59,7 +62,9 @@ export class UserProfileComponent implements OnInit {
       .fetchByIdToken()
       .subscribe(user => {
         this.user = user,
-          console.log(this.user)
+          console.log(this.user),
+          this._authentificationService
+            .setUserConnected(user);
       });
 
   }

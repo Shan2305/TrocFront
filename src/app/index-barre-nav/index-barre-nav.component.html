@@ -1,14 +1,20 @@
-
 <body>
 <ul>
   <li><a routerLink="">Accueil</a></li>
   <li><a routerLink="listUsers">Voir tout les troqueurs</a></li>
 
-  <li style="float:right"><a class="active" href="#about">About</a></li>
-  <li class="profil" *ngIf="user"><a routerLink="profile/">mon profil</a></li>
-  <li class="profil" *ngIf="!user"><a routerLink="../Connexion">Connexion</a></li>
-  <li class="profil" *ngIf="user"> <a (click)="logOut()" routerLink="">Deconnexion</a> </li>
-  <li class="profil" *ngIf="user && user.admin"> <a routerLink="../manageUser">Menu admin</a> </li>
+  <li style="float:right"><a class="active">WLT</a></li>
+  <li class="profil" *ngIf="_authentificationService.getUserConnected()"><a routerLink="profile/">Mon profil</a></li>
+  <li class="profil" *ngIf="!_authentificationService.getUserConnected()"><a routerLink="../Connexion">Connexion</a>
+  </li>
+  <li class="profil" *ngIf="_authentificationService.getUserConnected()"><a (click)="logOut()"
+                                                                            routerLink="">Deconnexion</a></li>
+
+  <li class="profil" *ngIf="_authentificationService.getUserConnected()">
+    <a routerLink="../manageUser">
+      Menu admin
+    </a></li>
+  <li class="titre"> We Love Troc</li>
 
 </ul>
 </body>

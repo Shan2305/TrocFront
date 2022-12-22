@@ -24,7 +24,7 @@ td
 body
 {
   position: absolute;
-  background: #828a00;
+  background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
   border: 1px solid;
   height: 80%;
   width: 80%;

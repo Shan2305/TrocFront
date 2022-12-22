@@ -1,8 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthentificationService} from "../authentification.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {IndexBarreNavComponent} from "../../index-barre-nav/index-barre-nav.component";
 
 
 @Component({
@@ -15,6 +16,8 @@ export class AuthentificationFormComponent implements OnInit {
   token: string | null = null;
 
   error: boolean = false;
+
+  @ViewChild(IndexBarreNavComponent) barreNav: IndexBarreNavComponent | undefined;
 
   form: FormGroup = this.fb.group({
     email: this.fb.control("", Validators.required),
@@ -29,22 +32,21 @@ export class AuthentificationFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   login() {
-    try {
-      this._authentificationService
-        .login(this.form.value.email, this.form.value.mdp)
-        .subscribe(response => {
-          this.router.navigate(['/profile']);
-        })
-      this.error = true;
-    } catch (error) {
-      console.error("ca marche po");
-    }
 
-
+    this._authentificationService
+      .login(this.form.value.email, this.form.value.mdp)
+      .subscribe(response => {
+        this.router.navigate(['/profile'])
+      })
+    this.error = true;
   }
 
 
 }
+
+
+

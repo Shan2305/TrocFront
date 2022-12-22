@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {catchError, Observable, of, throwError} from "rxjs";
+import {DtoInputUser} from "../index-user/dto/dto-input-user";
 
 
 @Injectable({
@@ -12,6 +13,8 @@ export class AuthentificationService implements HttpInterceptor {
   private static readonly httpOptions = {
     headers: new HttpHeaders(({'Content-type': 'application/json'}))
   };
+
+  userConnected : DtoInputUser | null = null;
 
   constructor(private _httpClient: HttpClient) {
   }
@@ -26,6 +29,19 @@ export class AuthentificationService implements HttpInterceptor {
     );
   }
 
+  setUserConnected(user : DtoInputUser)
+  {
+    this.userConnected = user;
+  }
+
+  getUserConnected()
+  {
+    return this.userConnected;
+  }
+  deleteUserConnected()
+  {
+    this.userConnected= null;
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authReq = req.clone({
