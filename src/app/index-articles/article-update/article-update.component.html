@@ -4,6 +4,9 @@
     <form [formGroup]="form" (ngSubmit)="Update()">
       <div class="modif" *ngIf="article">
         <h2>Modifer l'article</h2>
+        <div class="error" *ngIf="error">
+          {{errorMsg}}
+        </div>
         <table>
           <ul>
             <tr>
@@ -22,12 +25,26 @@
               <td></td>
               <td><input type="submit" value="Modifier" [disabled]="form.invalid"></td>
             </tr>
+            <tr>
+              <td></td>
+              <td>
+                <form (ngSubmit)="delete()">
+                  <input type="submit" value="Supprimer">
+                </form>
+              </td>
+            </tr>
           </ul>
         </table>
       </div>
     </form>
 
-    <div class="profil" *ngIf="user">
+    <div class="delete">
+      <form (ngSubmit)="delete()">
+        <input type="submit" value="Supprimer">
+      </form>
+    </div>
+    <br><br><br>
+    <div class="profil">
       <a routerLink="../../profile">
         Retourner à mon profil
       </a>

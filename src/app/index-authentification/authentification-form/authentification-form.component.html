@@ -17,7 +17,7 @@
 <body>
 <div id="login-form-wrap">
   <h2>Login</h2>
-  <div *ngIf="error">
+  <div class="error" *ngIf="error">
     Identifiant ou mot de passe incorrect
   </div>
   <form id="login-form" [formGroup]="form" (ngSubmit)="login()">

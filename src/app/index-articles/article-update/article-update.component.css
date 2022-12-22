@@ -32,3 +32,13 @@ td
   text-align: left;
 }
 
+.error
+{
+  color: red;
+}
+
+.delete
+{
+  text-align: center;
+}
+

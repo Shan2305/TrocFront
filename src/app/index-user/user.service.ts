@@ -40,13 +40,7 @@ export class UserService {
 
   //https://localhost:7018/api/v1/Users/fetchById
   fetchByIdToken(): Observable<DtoInputUser> {
-    return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT + '/fetchById')
-      .pipe(
-        catchError((error: any) => {
-          console.error(error);
-          return throwError(error);
-        })
-      );
+    return this._httpClient.get<DtoInputUser>(UserService.ENTRY_POINT + '/fetchById');
   }
 
   //https://localhost:7018/api/v1/Users?email=flo&pseudo=flo&localite=horrues&id=1

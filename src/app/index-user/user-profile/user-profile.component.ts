@@ -23,7 +23,6 @@ export class UserProfileComponent implements OnInit {
   form: FormGroup = this.fb.group({
     name: this.fb.control("", Validators.required),
     urlImage: this.fb.control("", Validators.required),
-    nomCat: this.fb.control("", Validators.required),
     description : this.fb.control("",Validators.required),
     combobox: this.fb.control("",Validators.required)
   });

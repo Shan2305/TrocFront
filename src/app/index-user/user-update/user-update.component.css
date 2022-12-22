@@ -16,3 +16,8 @@ body
 ul {
   list-style: none;
 }
+
+.error
+{
+  color: red;
+}

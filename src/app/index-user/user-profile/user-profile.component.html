@@ -46,6 +46,7 @@
             <td>nomCat :</td>
             <td>
               <select formControlName="combobox">
+                <option select>Choississez une catégorie</option>
                 <option *ngFor="let category of categories">
                   {{category.nomCategory}}
                 </option>
@@ -67,7 +68,9 @@
 
   <div class="otherArticle" *ngIf="articles">
     <div class="titre">
-      Voici tout tes articles
+      Voici tous vos articles
+      <br>
+      Appuyez sur un article pour le modifier ou le supprimer
     </div>
     <div>
       <ul class="ulArticles">

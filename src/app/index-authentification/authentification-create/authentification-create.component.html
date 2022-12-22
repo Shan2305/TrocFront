@@ -1,6 +1,10 @@
 <body>
 <div id="login-form-wrap">
   <h2>Login</h2>
+  <div class="error" *ngIf="error">
+    Information erronée, veuillez réessayer
+    {{this.msgErreur}}
+  </div>
   <form id="login-form" [formGroup]="form" (ngSubmit)="login()">
     <p>
       <input type="email" id="username" formControlName="email" name="username" placeholder="email" required><i
@@ -19,7 +23,7 @@
       class="validation"><span></span><span></span></i>
     </p>
     <p>
-      <input type="submit" id="login" value="Login" [disabled]="form.invalid">
+      <input type="submit" id="login" value="Créer un compte" [disabled]="form.invalid">
     </p>
   </form>
 </div>
