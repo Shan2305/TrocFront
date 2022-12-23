@@ -1,0 +1,60 @@
+body {
+  margin-left: 8%;
+  margin-right: 8%;
+  background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+  position: absolute;
+  overflow: auto;
+  height: 80%;
+  width: 80%;
+}
+
+.container
+{
+  display: flex;
+  justify-content: center;
+}
+.offre
+{
+  position: absolute;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  display: flex;
+}
+.articleOffer
+{
+  border: 1px solid;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.caseImage
+{
+  margin: auto;
+
+  width: 50%;
+  height: 50%;
+}
+
+.ArticleWanted
+{
+  display: flex;
+  border: 1px solid;
+  height: 100%;
+  width: 50%;
+}
+
+img
+{
+  width: 100%;
+  height: 90%;
+}
+
+.accepter
+{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+

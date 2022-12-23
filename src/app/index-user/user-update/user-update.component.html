@@ -1,17 +1,34 @@
-<div  class="profil" *ngIf="user">
+<body>
+<div class="profil" *ngIf="user">
   <form [formGroup]="form" (ngSubmit)="Update()">
-  <ul class="ulProfil">
-
-    <li>
-      PSEUDO : <input formControlName="name" value="{{user.pseudo}}">
-    </li>
-    <li>
-      EMAIL : <input formControlName="email" value ="{{user.email}}">
-    </li>
-    <li>
-      LOCALITE : <input formControlName="localite" value ="{{user.localite}}">
-    </li>
-  </ul>
-    <input type="submit" value="Modifier">
+    <div class="error" *ngIf="error">
+      {{errorMsg}}
+    </div>
+    <table>
+      <ul class="ulProfil">
+        <tr>
+          <td>PSEUDO :</td>
+          <td><input formControlName="name" [(ngModel)]="user.pseudo"></td>
+        </tr>
+        <tr>
+          <td>EMAIL :</td>
+          <td><input formControlName="email" [(ngModel)]="user.email"></td>
+        </tr>
+        <tr>
+          <td>LOCALITE :</td>
+          <td><input formControlName="localite" [(ngModel)]="user.localite"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" value="Modifier mon profil"></td>
+        </tr>
+      </ul>
+    </table>
   </form>
+  <div class="profil">
+    <a routerLink="../profile">
+      Retourner à mon profil
+    </a>
+  </div>
 </div>
+</body>

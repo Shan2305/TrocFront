@@ -24,6 +24,15 @@ import {AuthentificationService} from "./index-authentification/authentification
 import { UserUpdateComponent } from './index-user/user-update/user-update.component';
 import { IndexBarreNavComponent } from './index-barre-nav/index-barre-nav.component';
 import { ArticleUpdateComponent } from './index-articles/article-update/article-update.component';
+import { IndexTransactionsComponent } from './index-transactions/index-transactions.component';
+import { TransactionsListComponent } from './index-transactions/transactions-list/transactions-list.component';
+import { TransactionsDetailComponent } from './index-transactions/transactions-detail/transactions-detail.component';
+import { IndexHistoricTransactionsComponent } from './index-historic-transactions/index-historic-transactions.component';
+import { DetailHistoricTransactionsComponent } from './index-historic-transactions/detail-historic-transactions/detail-historic-transactions.component';
+import { AuthentificationCreateComponent } from './index-authentification/authentification-create/authentification-create.component';
+import { IndexAdminComponent } from './index-admin/index-admin.component';
+import { ManageUserComponent } from './index-admin/manage-user/manage-user.component';
+import { IndexHistoricArticlesComponent } from './index-historic-articles/index-historic-articles.component';
 
 
 
@@ -44,7 +53,16 @@ import { ArticleUpdateComponent } from './index-articles/article-update/article-
     UserProfileComponent,
     UserUpdateComponent,
     IndexBarreNavComponent,
-    ArticleUpdateComponent
+    ArticleUpdateComponent,
+    IndexTransactionsComponent,
+    TransactionsListComponent,
+    TransactionsDetailComponent,
+    IndexHistoricTransactionsComponent,
+    DetailHistoricTransactionsComponent,
+    AuthentificationCreateComponent,
+    IndexAdminComponent,
+    ManageUserComponent,
+    IndexHistoricArticlesComponent
   ],
   imports: [
     BrowserModule,

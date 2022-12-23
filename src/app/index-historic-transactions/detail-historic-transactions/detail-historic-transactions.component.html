@@ -1,0 +1,47 @@
+<body *ngIf="requestingUser && userConnected">
+<h1 *ngIf="transaction">cette transaction a été
+  <span *ngIf="transaction.echange">acceptée</span>
+  <span *ngIf="!transaction.echange">refusée</span>
+</h1>
+
+<div class="instruction">
+  <span>Vous pouvez maintenant contacter l'autre troqueur par mail afin de procéder à l'échange, voici son e-mail</span>
+  <br>
+  <span>
+  <a *ngIf="requestingUser.id!=userConnected.id" href="mailto:{{requestingUser.email}}">{{requestingUser.email}}</a>
+  <a *ngIf="requestingUser.id==userConnected.id && UserArticleWanted"
+     href="mailto:{{UserArticleWanted.email}}">{{UserArticleWanted.email}}</a>
+</span>
+  <div class="profil">
+    <a routerLink="../../profile">
+      Retourner à mon profil
+    </a>
+  </div>
+</div>
+<br>
+<div class="container"
+     *ngIf="ArticleWanted && ArticleOffer && transaction && requestingUser &&userConnected && UserArticleWanted">
+
+  <div class="offre">
+    <div class="articleOffer">
+      <span *ngIf="requestingUser.id != userConnected.id">L'utilisateur {{requestingUser.pseudo}} veut échanger son article suivant :</span>
+      <span *ngIf="requestingUser.id == userConnected.id">Vous voulez echanger votre</span>
+      <div class="caseImage">
+        {{ArticleOffer.name}}
+        <img src="{{ArticleOffer.urlImage}}"/>
+      </div>
+    </div>
+
+    <div class="ArticleWanted">
+      <span *ngIf="requestingUser.id != userConnected.id">Avec votre :</span>
+      <span
+        *ngIf="requestingUser.id == userConnected.id">Avec cet article appartenant à {{UserArticleWanted.pseudo}}</span>
+      <div class="caseImage">
+        {{ArticleWanted.name}}
+        <img src="{{ArticleWanted.urlImage}}"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>

@@ -1,9 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthentificationService} from "../authentification.service";
-import {DtoCreateArticle} from "../../index-articles/dto/dto-create-article";
-import {DtoLogin} from "../dto/dto-login";
-import {DtoInputUser} from "../../index-user/dto/dto-input-user";
+import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {IndexBarreNavComponent} from "../../index-barre-nav/index-barre-nav.component";
+
 
 @Component({
   selector: 'app-authentification-form',
@@ -13,24 +14,39 @@ import {DtoInputUser} from "../../index-user/dto/dto-input-user";
 export class AuthentificationFormComponent implements OnInit {
 
   token: string | null = null;
+
+  error: boolean = false;
+
+  @ViewChild(IndexBarreNavComponent) barreNav: IndexBarreNavComponent | undefined;
+
   form: FormGroup = this.fb.group({
     email: this.fb.control("", Validators.required),
     mdp: this.fb.control("", Validators.required)
   });
 
-  constructor(private fb: FormBuilder, private _authentificationService: AuthentificationService) {
+
+  constructor(private fb: FormBuilder,
+              private _authentificationService: AuthentificationService,
+              private router: Router
+  ) {
   }
 
   ngOnInit(): void {
+
   }
 
-  //    this._articleService.create(dto).subscribe(article => this.articles.push(article));
   login() {
+
     this._authentificationService
       .login(this.form.value.email, this.form.value.mdp)
-      .subscribe();
-      location.replace("");
+      .subscribe(response => {
+        this.router.navigate(['/profile'])
+      })
+    this.error = true;
   }
 
 
 }
+
+
+

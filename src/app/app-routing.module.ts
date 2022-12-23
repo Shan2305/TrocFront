@@ -13,6 +13,16 @@ import {
   AuthentificationFormComponent
 } from "./index-authentification/authentification-form/authentification-form.component";
 import {ArticleUpdateComponent} from "./index-articles/article-update/article-update.component";
+import {TransactionsListComponent} from "./index-transactions/transactions-list/transactions-list.component";
+import {TransactionsDetailComponent} from "./index-transactions/transactions-detail/transactions-detail.component";
+import {
+  DetailHistoricTransactionsComponent
+} from "./index-historic-transactions/detail-historic-transactions/detail-historic-transactions.component";
+import {
+  AuthentificationCreateComponent
+} from "./index-authentification/authentification-create/authentification-create.component";
+import {ManageUserComponent} from "./index-admin/manage-user/manage-user.component";
+import {IndexBarreNavComponent} from "./index-barre-nav/index-barre-nav.component";
 
 
 const routes: Routes = [
@@ -45,8 +55,24 @@ const routes: Routes = [
   {
     path: 'Connexion', component: AuthentificationFormComponent
   },
-
-
+  {
+    path: 'CreateAccount', component: AuthentificationCreateComponent
+  },
+  {
+    path: 'transactionRequest', component: TransactionsListComponent
+  },
+  {
+    path: 'detailTransaction/:id', component: TransactionsDetailComponent
+  },
+  {
+    path: 'detailTransactionHistoric/:id', component: DetailHistoricTransactionsComponent
+  },
+  {
+    path: 'manageUser', component: ManageUserComponent
+  },
+  {
+    path : "barrenav", component:IndexBarreNavComponent
+  }
 ]
 
 

@@ -14,16 +14,28 @@ export class UserListComponent implements OnInit {
   @Input()
   users:DtoInputUser[] = [];
 
+  userConnected : DtoInputUser | null = null;
+
   constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
     this.fetchAll();
+    this.fetchByIdToken();
   }
 
   private fetchAll() {
     this._userService
       .fetchAll()
       .subscribe(users => this.users = users);
+  }
+  fetchByIdToken() {
+    return this._userService
+      .fetchByIdToken()
+      .subscribe(user => {
+        this.userConnected = user,
+          console.log(this.userConnected)
+      });
+
   }
 
 

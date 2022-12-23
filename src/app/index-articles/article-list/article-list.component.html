@@ -2,24 +2,28 @@
 
 <div class="container" *ngIf="articles.length">
 
-  <form  (ngSubmit)='affichage(recherche.value)' >
-    <input #recherche type="text" name="test">
-    <input type="submit" value="Rechercher" >
-  </form>
+  <div class="recherche">
+    <div class="rechercheBar">
+      <form (ngSubmit)='affichage(recherche.value)'>
+        <input id="recherche" #recherche type="text" name="test">
+        <input type="submit" value="Rechercher">
+      </form>
+    </div>
 
-  <div *ngIf="categories.length">
-    <form (ngSubmit)="filtreCategories(combobox.value)">
-  <select #combobox>
-    <option *ngFor="let category of categories">
-      {{category.nomCategory}}
-    </option>
-  </select>
-      <input type="submit" value="Filtrer">
-    </form>
+    <div class="filtre" *ngIf="categories.length">
+      <form (ngSubmit)="filtreCategories(combobox.value)">
+        <select #combobox>
+          <option *ngFor="let category of categories">
+            {{category.nomCategory}}
+          </option>
+        </select>
+        <input type="submit" value="Filtrer">
+      </form>
+    </div>
   </div>
 
   <ul>
-    <li *ngFor="let article of articles " >
+    <li *ngFor="let article of articles ">
       <a routerLink="../detail/{{article.id}}">
         <div class="casArticle">
           <span class="articleName">{{article.name}}</span>
@@ -28,10 +32,7 @@
           </div>
         </div>
       </a>
-
     </li>
-
-
   </ul>
 </div>
 </body>

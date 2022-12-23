@@ -1,0 +1,37 @@
+<body>
+<h1>LISTE DES UTILISATEURS</h1>
+<div class="container" *ngIf="users.length && userConnected">
+  <table>
+    <thead>
+    <tr>
+      <td>
+        Pseudo :
+      </td>
+      <td *ngIf="userConnected && userConnected.admin== true">
+        Est admin ?
+      </td>
+      <td>Modifier Role</td>
+      <td>Suppression</td>
+    </tr>
+    </thead>
+    <tr *ngFor="let user of users">
+      <td *ngIf="user.id != userConnected.id">
+        <a routerLink="../detailUser/{{user.id}}">
+          {{user.pseudo}}
+        </a>
+      </td>
+      <td *ngIf="user.id != userConnected.id">
+        {{user.admin}}
+      </td>
+      <a (click)="setAdmin(!user.admin, user.id, user.pseudo)">
+        <td *ngIf="user.admin == false && user.id != userConnected.id">Mettre admin</td>
+      </a>
+      <a (click)="setAdmin(!user.admin, user.id, user.pseudo)">
+        <td *ngIf="user.admin == true && user.id != userConnected.id">Retirer admin</td>
+      </a>
+      <td *ngIf="user.id != userConnected.id"><a (click)="deleteUser(user.id, user.pseudo)">Supprimer ?</a></td>
+    </tr>
+  </table>
+</div>
+</body>
+

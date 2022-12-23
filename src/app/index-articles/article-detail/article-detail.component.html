@@ -1,30 +1,57 @@
-<body>
-LISTE ARTICLES
+<body *ngIf="article">
+<div class="titre">
+  <h1>Voici le détail de l'article {{article.name}}</h1>
+</div>
 <div class="container" *ngIf="article">
 
   <div class=containerImg>
     <div class="name">{{article.name}}</div>
-    <--<span>"catégorie"</span>-->
     <div> Description de l'article : <br> {{article.description}}</div>
-  <img src="{{article.urlImage}}"/>
+    <img src="{{article.urlImage}}"/>
   </div>
 
-  <div class="profil" *ngIf="user">
-    Voici le profil du troceur
-    <br>
-    Pseudo : {{user.pseudo}}
-    <br>
-    localite : {{user.localite}}
-    <br>
-   Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
-    <br>
-    <a routerLink="../../detailUser/{{user.id}}">
-    Accéder au profil ?
-    </a>
+  <div class="profilANDTrade">
+    <div class="profil" *ngIf="user">
+      Voici le profil du troqueur
+      <br>
+      Pseudo : {{user.pseudo}}
+      <br>
+      localite : {{user.localite}}
+      <br>
+      Contacter par mail ? <a href="mailto:{{user.email}}"> {{user.email}}</a>
+      <br>
+      <a routerLink="../../detailUser/{{user.id}}">
+        Accéder au profil ?
+      </a>
+    </div>
+    <div class="trade" *ngIf="article.idUser !=userConnected?.id && userConnected">
+      VOULEZ-VOUS FAIRE UNE DEMANDE D'ECHANGE ?
+      <div>
+        <form [formGroup]="form" (ngSubmit)="trade()">
+          Lequel de vos articles voulez-vous proposez à l'échange ?
+          <ul class="ulArticles">
+            <li *ngFor="let article of articles">
 
+              <label for="{{article.id}}">
+                <div class="casArticle">
+                  <input formControlName="articleToTrade" type="radio" id="{{article.id}}" value="{{article.id}}">
+                  <br>
+                  <span class="articleName">{{article.name}}</span>
+                  <div class="caseImage">
+                    <img src={{article.urlImage}}/>
+                  </div>
+                </div>
+              </label>
+            </li>
+          </ul>
+          <input type="submit" value="proposer en échange" [disabled]="form.invalid">
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 </body>
+
 <router-outlet></router-outlet>
 
 

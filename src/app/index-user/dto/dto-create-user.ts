@@ -4,4 +4,5 @@ export interface DtoCreateUser
   pseudo:string;
   localite:string;
   mdp:string;
+  admin : boolean;
 }

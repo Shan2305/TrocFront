@@ -12,7 +12,13 @@ export const environment = {
 
   ApiUrlCategory:"https://localhost:7018/api/v1/Category",
 
-  ApiUrlAuthentification:"https://localhost:7018/api/Authentication/login"
+  ApiUrlAuthentification:"https://localhost:7018/api/Authentication/login",
+
+  ApiUrlTransactions:"https://localhost:7018/api/v1/Transaction",
+
+  ApiUrlHistoricTransactions : "https://localhost:7018/api/v1/HistoricTransaction",
+
+  ApiUrlHistoricArticle : "https://localhost:7018/api/v1/HistoricArticle"
 
 
 };

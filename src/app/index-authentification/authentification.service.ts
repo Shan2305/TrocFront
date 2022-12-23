@@ -1,17 +1,20 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable, of, throwError} from "rxjs";
+import {DtoInputUser} from "../index-user/dto/dto-input-user";
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthentificationService implements HttpInterceptor{
+export class AuthentificationService implements HttpInterceptor {
   private static readonly ENTRY_POINT = environment.ApiUrlAuthentification;
   private static readonly httpOptions = {
     headers: new HttpHeaders(({'Content-type': 'application/json'}))
   };
+
+  userConnected : DtoInputUser | null = null;
 
   constructor(private _httpClient: HttpClient) {
   }
@@ -23,14 +26,26 @@ export class AuthentificationService implements HttpInterceptor{
         email: email,
         mdp: mdp
       },
-
-      );
+    );
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>
+  setUserConnected(user : DtoInputUser)
   {
+    this.userConnected = user;
+  }
+
+  getUserConnected()
+  {
+    return this.userConnected;
+  }
+  deleteUserConnected()
+  {
+    this.userConnected= null;
+  }
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const authReq = req.clone({
-      withCredentials:true
+      withCredentials: true
     });
     return next.handle(authReq);
   }

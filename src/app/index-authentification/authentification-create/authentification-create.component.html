@@ -1,0 +1,31 @@
+<body>
+<div id="login-form-wrap">
+  <h2>Créer un compte</h2>
+  <div class="error" *ngIf="error">
+    Information erronée, veuillez réessayer
+    <br>
+    {{this.msgErreur}}
+  </div>
+  <form id="login-form" [formGroup]="form" (ngSubmit)="login()">
+    <p>
+      <input type="email" id="username" formControlName="email" name="username" placeholder="email" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="text" id="pseudo" formControlName="pseudo" name="pseudo" placeholder="pseudo" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="text" id="localite" formControlName="localite" name="localite" placeholder="Localite" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="password" id="password" formControlName="mdp" name="password" placeholder="mot de passe" required><i
+      class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="submit" id="login" value="Créer un compte" [disabled]="form.invalid">
+    </p>
+  </form>
+</div>
+</body>

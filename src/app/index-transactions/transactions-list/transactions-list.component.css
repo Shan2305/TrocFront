@@ -1,0 +1,39 @@
+body {
+  margin-left: 8%;
+  margin-right: 8%;
+  background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 80%;
+}
+
+.container
+{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+.titre{
+
+  text-align: center;
+}
+
+.requestANDoffer
+{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+}
+
+.HISTORIC
+{
+  border: 1px solid;
+}
+.row
+{
+  display: flex;
+}
