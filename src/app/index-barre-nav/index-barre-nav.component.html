@@ -1,7 +1,7 @@
 <body>
 <ul>
   <li><a routerLink="">Accueil</a></li>
-  <li><a routerLink="listUsers">Voir tout les troqueurs</a></li>
+  <li><a routerLink="listUsers">Voir tous les troqueurs</a></li>
 
   <li style="float:right"><a class="active">WLT</a></li>
   <li class="profil" *ngIf="_authentificationService.getUserConnected()"><a routerLink="profile/">Mon profil</a></li>
@@ -11,10 +11,11 @@
                                                                             routerLink="">Deconnexion</a></li>
 
   <li class="profil" *ngIf="_authentificationService.getUserConnected()">
-    <a routerLink="../manageUser">
+    <span *ngIf="_authentificationService.getUserConnected()?.admin">
+      <a routerLink="../manageUser">
       Menu admin
-    </a></li>
-  <li class="titre"> We Love Troc</li>
+    </a></span>
+  </li>
 
 </ul>
 </body>

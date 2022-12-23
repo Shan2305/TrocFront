@@ -1,8 +1,9 @@
 <body>
 <div id="login-form-wrap">
-  <h2>Login</h2>
+  <h2>Créer un compte</h2>
   <div class="error" *ngIf="error">
     Information erronée, veuillez réessayer
+    <br>
     {{this.msgErreur}}
   </div>
   <form id="login-form" [formGroup]="form" (ngSubmit)="login()">
